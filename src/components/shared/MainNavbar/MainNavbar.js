@@ -20,10 +20,19 @@ class MainNavbar extends React.Component {
 
     return (
       <div className="MainNavbar">
-        <h2>Navbar</h2>
-        {
-          (authed) && <button className="btn btn-outline-warning" onClick={this.logMeOut}>Logout</button>
-        }
+
+
+        <nav className="navbar navbar-expand-lg navbar-dark">
+          <h1 className="navbar-brand">For the Love of Java</h1>
+          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            {
+              (authed) && <button className="btn btn-danger" onClick={this.logMeOut}>Logout</button>
+            }
+          </div>
+        </nav>
       </div>
     );
   }

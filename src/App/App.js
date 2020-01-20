@@ -35,7 +35,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <MainNavbar authed={authed} />
-       <h1>Front-End Capstone Project</h1>
+       <h1 className="mt-3">Front-End Capstone Project</h1>
         <Auth authed={authed} />
       </div>
     );
