@@ -1,0 +1,23 @@
+{
+    "user1": {
+    "uid": "123456",
+    "firsName": "Bat",
+    "lastName": "Man",
+    "city": "Gotham",
+    "state":  "New York"
+    },
+    "user2": {
+    "uid": "78910",
+    "firsName": "Carol",
+    "lastName": "Danvers",
+    "city": "Nashville",
+    "state":  "Tennessee"
+    },
+    "user3": {
+    "uid": "555666",
+    "firsName": "Barry",
+    "lastName": "Allen",
+    "city": "Nashville",
+    "state":  "Tennessee"
+    }
+ }
