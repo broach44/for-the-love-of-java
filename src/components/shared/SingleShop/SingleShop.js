@@ -11,7 +11,7 @@ class SingleShop extends React.Component {
       <div className="SingleShop">
         <h1>Single Shop</h1>
         <Link className="btn btn-success" to={`/shop/${shopId}/log/new`}>+ Log Visit</Link>
-        <Link className="btn btn-secondary" to={`/shop/${shopId}/log/${logId}/edit`}>+ Edit Visit</Link>
+        <Link className="btn btn-secondary" to={`/shop/${shopId}/log/${logId}/edit`}>Edit Visit</Link>
       </div>
     );
   }
