@@ -4,41 +4,41 @@
     "address": "555 wakemeup blvd",
     "city":  "Gotham",
     "state":  "New York",
-    "zip":  "55555"
+    "zip":  55555
     },
     "shop2":  {
     "name": "Sam and Zoe's",
     "address": "525 Heather Pl",
     "city":  "Nashville",
     "state":  "Tennessee",
-    "zip":  "37204"
+    "zip":  37204
     },
     "shop3":  {
     "name": "CREMA",
     "address": "15 Hermitage Avenue",
     "city":  "Nashville",
     "state":  "Tennessee",
-    "zip":  "37204"
+    "zip":  37204
     },
     "shop4":  {
     "name": "Frothy Monkey - 12South",
     "address": "2509 12th Ave S.",
     "city":  "Nashville",
     "state":  "Tennessee",
-    "zip":  "37204"
+    "zip":  37204
     },
     "shop5":  {
     "name": "8th & Roast",
     "address": "2108 8th Ave. S.",
     "city":  "Nashville",
     "state":  "Tennessee",
-    "zip":  "37204"
+    "zip":  37204
     },
     "shop6":  {
     "name": "Ugly Muggs Coffee & Tea",
     "address": "1886 Eastland Ave",
     "city":  "Nashville",
     "state":  "Tennessee",
-    "zip":  "37206"
+    "zip":  37206
     }
  }
