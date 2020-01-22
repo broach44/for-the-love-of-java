@@ -21,4 +21,6 @@ const getCoffeeShops = () => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
-export default { getCoffeeShops };
+const getSingleShop = (shopId) => axios.get(`${baseUrl}/coffeeShops/${shopId}.json`);
+
+export default { getCoffeeShops, getSingleShop };
