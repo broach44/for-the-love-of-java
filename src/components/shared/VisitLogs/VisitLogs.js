@@ -8,6 +8,10 @@ import shopShape from '../../../helpers/propz/shopShape';
 import './VisitLogs.scss';
 
 class VisitLogs extends React.Component {
+  state = {
+    logs: [],
+  }
+
   static propTypes = {
     shop: shopShape.shopShape,
   }
@@ -25,10 +29,13 @@ class VisitLogs extends React.Component {
 
   render() {
     const { shop } = this.props;
+    const { logs } = this.state;
     return (
       <div className="VisitLogs">
-        <h1>Visit Logs for {shop.name}</h1>
-        <VisitCard />
+        <h1>Visit Logs</h1>
+        {
+          logs.map((log) => <VisitCard key={log.id} log={log} shop={shop} />)
+        }
       </div>
     );
   }
