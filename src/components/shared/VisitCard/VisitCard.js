@@ -19,6 +19,10 @@ class VisitCard extends React.Component {
             <p className="card-text">Drinks: {log.drinksConsumed}</p>
             <p className="card-text">Food: {log.foodConsumed}</p>
             <p className="card-text">Comments: {log.comments}</p>
+            <p className="card-text">Ratings:</p>
+            <p className="card-text">
+              Food: {log.foodRating}  Drink: {log.drinkRating}  Pricing: {log.pricingRating}  Tech: {log.techRating}  Wifi: {log.wifiRating}  Environment: {log.environmentRating}
+            </p>
             <Link className="btn btn-secondary" to={`/shop/${log.shopId}/log/${log.id}/edit`}>Edit Visit</Link>
           </div>
         </div>
