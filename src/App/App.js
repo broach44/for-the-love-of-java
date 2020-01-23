@@ -14,7 +14,7 @@ import Profile from '../components/pages/Profile/Profile';
 import MainNavbar from '../components/shared/MainNavbar/MainNavbar';
 import Shops from '../components/pages/Shops/Shops';
 import ShopForm from '../components/pages/ShopForm/ShopForm';
-import SingleShop from '../components/shared/SingleShop/SingleShop';
+import SingleShop from '../components/pages/SingleShop/SingleShop';
 import VisitForm from '../components/pages/VisitForm/VisitForm';
 
 import firebaseConnection from '../helpers/data/connection';
