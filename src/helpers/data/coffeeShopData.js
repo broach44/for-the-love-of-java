@@ -23,4 +23,6 @@ const getCoffeeShops = () => new Promise((resolve, reject) => {
 
 const getSingleShop = (shopId) => axios.get(`${baseUrl}/coffeeShops/${shopId}.json`);
 
-export default { getCoffeeShops, getSingleShop };
+const addNewShop = (shopObj) => axios.post(`${baseUrl}/coffeeShops.json`, shopObj);
+
+export default { getCoffeeShops, getSingleShop, addNewShop };
