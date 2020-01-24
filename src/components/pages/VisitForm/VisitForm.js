@@ -73,6 +73,14 @@ class VisitForm extends React.Component {
     this.setState({ newPurpose: e.target.value });
   }
 
+  changeDrinksConsumed = (e) => {
+    this.setState({ newDrinksConsumed: e.target.value });
+  }
+
+  changeFoodConsumed = (e) => {
+    this.setState({ newFoodConsumed: e.target.value });
+  }
+
   changeRecommendation = (e) => {
     this.setState({ newWouldRecommend: e.target.value });
   }
@@ -89,6 +97,18 @@ class VisitForm extends React.Component {
     this.setState({ newFoodRating: e.target.value });
   }
 
+  changePricingRating = (e) => {
+    this.setState({ newPricingRating: e.target.value });
+  }
+
+  changeTechRating = (e) => {
+    this.setState({ newTechRating: e.target.value });
+  }
+
+  changeWifiRating = (e) => {
+    this.setState({ newWifiRating: e.target.value });
+  }
+
   render() {
     const {
       newDate,
@@ -98,6 +118,11 @@ class VisitForm extends React.Component {
       newEnvironmentRating,
       newDrinkRating,
       newFoodRating,
+      newPricingRating,
+      newTechRating,
+      newWifiRating,
+      newDrinksConsumed,
+      newFoodConsumed,
     } = this.state;
     return (
       <div className="VisitForm">
@@ -133,6 +158,28 @@ class VisitForm extends React.Component {
               placeholder="What brought you in?"
               value={newPurpose}
               onChange={this.changePurpose}
+            />
+          </div>
+          <div className="form-group">
+            <label for="DrinksConsumed">Beverage enjoyed:</label>
+            <input
+              type="text"
+              className="form-control"
+              id="DrinksConsumed"
+              placeholder="Did you grab a beverage? If so list which one..."
+              value={newDrinksConsumed}
+              onChange={this.changeDrinksConsumed}
+            />
+          </div>
+          <div className="form-group">
+            <label for="FoodConsumed">Food Enjoyed: </label>
+            <input
+              type="text"
+              className="form-control"
+              id="FoodConsumed"
+              placeholder="Did you grab a bite to eat? If so list ..."
+              value={newFoodConsumed}
+              onChange={this.changeFoodConsumed}
             />
           </div>
           <div className="form-group">
@@ -177,6 +224,39 @@ class VisitForm extends React.Component {
               placeholder="Rate the food on a scale of 1 to 5 (1 is worst, 5 is out of this world)"
               value={newFoodRating}
               onChange={this.changeFoodRating}
+            />
+          </div>
+          <div className="form-group col-2">
+            <label for="PricingRating">Pricing Rating: </label>
+            <input
+              type="number"
+              className="form-control"
+              id="PricingRating"
+              placeholder="Rate the pricing on a scale of 1 to 5 (1 is worst, 5 is out of this world)"
+              value={newPricingRating}
+              onChange={this.changePricingRating}
+            />
+          </div>
+          <div className="form-group col-2">
+            <label for="TechRating">Tech Rating: </label>
+            <input
+              type="number"
+              className="form-control"
+              id="TechRating"
+              placeholder="Rate the tech on a scale of 1 to 5 (1 is worst, 5 is out of this world)"
+              value={newTechRating}
+              onChange={this.changeTechRating}
+            />
+          </div>
+          <div className="form-group col-2">
+            <label for="WifiRating">Wifi Rating: </label>
+            <input
+              type="number"
+              className="form-control"
+              id="WifiRating"
+              placeholder="Rate the WiFi on a scale of 1 to 5 (1 is worst, 5 is out of this world)"
+              value={newWifiRating}
+              onChange={this.changeWifiRating}
             />
           </div>
         <button className="btn btn-success" onClick={this.addNewLog}>Save New Entry</button>
