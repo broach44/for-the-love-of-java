@@ -1,7 +1,7 @@
 import React from 'react';
 
 import userLogsData from '../../../helpers/data/userLogData';
-
+import authData from '../../../helpers/data/authData';
 import './VisitForm.scss';
 
 class VisitForm extends React.Component {
@@ -11,15 +11,30 @@ class VisitForm extends React.Component {
     newPurpose: '',
     newWouldRecommend: '',
     newEnvironmentRating: '',
+    newDrinkRating: '',
+    newFoodRating: '',
+    newPricingRating: '',
+    newTechRating: '',
+    newWifiRating: '',
+    newDrinksConsumed: '',
+    newFoodConsumed: '',
   }
 
   createNewLogObj = () => {
+    const { shopId } = this.props.match.params;
     const {
       newDate,
       newComments,
       newPurpose,
       newWouldRecommend,
       newEnvironmentRating,
+      newDrinkRating,
+      newFoodRating,
+      newPricingRating,
+      newTechRating,
+      newWifiRating,
+      newDrinksConsumed,
+      newFoodConsumed,
     } = this.state;
     const newLogObj = {
       dateOfVisit: newDate,
@@ -27,13 +42,22 @@ class VisitForm extends React.Component {
       purposeOfvisit: newPurpose,
       wouldRecommend: newWouldRecommend,
       environmentRating: newEnvironmentRating,
+      drinkRating: newDrinkRating,
+      foodRating: newFoodRating,
+      pricingRating: newPricingRating,
+      techRating: newTechRating,
+      wifiRating: newWifiRating,
+      drinksConsumed: newDrinksConsumed,
+      foodConsumed: newFoodConsumed,
+      uid: authData.getUid(),
+      shopId,
     };
     return newLogObj;
   }
 
   addNewLog = (e) => {
     userLogsData.saveNewLog(this.createNewLogObj())
-      .then(() => console.log('it worked'))
+      .then(() => this.props.history.push('/shop/:shopId'))
       .catch((err) => console.error('err from new Log', err));
   }
 
@@ -57,6 +81,14 @@ class VisitForm extends React.Component {
     this.setState({ newEnvironmentRating: e.target.value });
   }
 
+  changeDrinkRating = (e) => {
+    this.setState({ newDrinkRating: e.target.value });
+  }
+
+  changeFoodRating = (e) => {
+    this.setState({ newFoodRating: e.target.value });
+  }
+
   render() {
     const {
       newDate,
@@ -64,6 +96,8 @@ class VisitForm extends React.Component {
       newPurpose,
       newWouldRecommend,
       newEnvironmentRating,
+      newDrinkRating,
+      newFoodRating,
     } = this.state;
     return (
       <div className="VisitForm">
@@ -112,7 +146,7 @@ class VisitForm extends React.Component {
               onChange={this.changeRecommendation}
             />
           </div>
-          <div className="form-group">
+          <div className="form-group col-2">
             <label for="EnvironmentRating">Environment Rating: </label>
             <input
               type="number"
@@ -121,6 +155,28 @@ class VisitForm extends React.Component {
               placeholder="Rate the environment on a scale of 1 to 5 (1 is worst, 5 is out of this world)"
               value={newEnvironmentRating}
               onChange={this.changeEnvironmentRating}
+            />
+          </div>
+          <div className="form-group col-2">
+            <label for="DrinkRating">Drink Rating: </label>
+            <input
+              type="number"
+              className="form-control"
+              id="DrinkRating"
+              placeholder="Rate the drink on a scale of 1 to 5 (1 is worst, 5 is out of this world)"
+              value={newDrinkRating}
+              onChange={this.changeDrinkRating}
+            />
+          </div>
+          <div className="form-group col-2">
+            <label for="FoodRating">Food Rating: </label>
+            <input
+              type="number"
+              className="form-control"
+              id="FoodRating"
+              placeholder="Rate the food on a scale of 1 to 5 (1 is worst, 5 is out of this world)"
+              value={newFoodRating}
+              onChange={this.changeFoodRating}
             />
           </div>
         <button className="btn btn-success" onClick={this.addNewLog}>Save New Entry</button>
