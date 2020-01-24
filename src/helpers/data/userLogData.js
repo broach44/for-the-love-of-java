@@ -20,4 +20,6 @@ const getLogsByShopId = (shopId) => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
-export default { getLogsByShopId };
+const saveNewLog = (entryInfo) => axios.post(`${baseUrl}/userLogs.json`, entryInfo);
+
+export default { getLogsByShopId, saveNewLog };
