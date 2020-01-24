@@ -56,8 +56,9 @@ class VisitForm extends React.Component {
   }
 
   addNewLog = (e) => {
+    const { shopId } = this.props.match.params;
     userLogsData.saveNewLog(this.createNewLogObj())
-      .then(() => this.props.history.push('/shop/:shopId'))
+      .then(() => this.props.history.push(`/shop/${shopId}`))
       .catch((err) => console.error('err from new Log', err));
   }
 
