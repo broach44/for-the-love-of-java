@@ -10,15 +10,16 @@ import './VisitLogs.scss';
 class VisitLogs extends React.Component {
   static propTypes = {
     logs: PropTypes.arrayOf(logShape.logShape),
+    deleteEntry: PropTypes.func,
   }
 
   render() {
-    const { logs } = this.props;
+    const { logs, deleteEntry } = this.props;
     return (
       <div className="VisitLogs">
         <h1>Visit Logs</h1>
         {
-          logs.map((log) => <VisitCard key={log.id} log={log} />)
+          logs.map((log) => <VisitCard key={log.id} log={log} deleteEntry={deleteEntry} />)
         }
       </div>
     );
