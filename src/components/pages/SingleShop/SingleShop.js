@@ -37,13 +37,20 @@ class SingleShop extends React.Component {
     this.setCurrentShop();
   }
 
+  deleteEntry = (logId) => {
+    const { shop } = this.state;
+    userLogData.deleteLogEntry(logId)
+      .then(() => this.getLogs(shop.id))
+      .catch((err) => console.error('err from delete Log', err));
+  }
+
   render() {
     const { shop, logs } = this.state;
     return (
       <div className="SingleShop">
         <h1>Shop View</h1>
         <Link className="btn btn-success" to={`/shop/${shop.id}/log/new`}>+ Log Visit</Link>
-        <VisitLogs logs={logs} />
+        <VisitLogs logs={logs} deleteEntry={this.deleteEntry} />
       </div>
     );
   }
