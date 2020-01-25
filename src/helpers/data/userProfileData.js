@@ -20,4 +20,6 @@ const getProfileByUid = (uid) => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
-export default { getProfileByUid };
+const saveNewUser = (userInfo) => axios.post(`${baseUrl}/users.json`, userInfo);
+
+export default { getProfileByUid, saveNewUser };
