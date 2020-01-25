@@ -20,8 +20,18 @@ const getLogsByShopId = (shopId) => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
+const getSingleLog = (logId) => axios.get(`${baseUrl}/userLogs/${logId}.json`);
+
 const saveNewLog = (entryInfo) => axios.post(`${baseUrl}/userLogs.json`, entryInfo);
+
+const updateLog = (logId, logInfo) => axios.put(`${baseUrl}/userLogs/${logId}.json`, logInfo);
 
 const deleteLogEntry = (logId) => axios.delete(`${baseUrl}/userLogs/${logId}.json`);
 
-export default { getLogsByShopId, saveNewLog, deleteLogEntry };
+export default {
+  getLogsByShopId,
+  saveNewLog,
+  deleteLogEntry,
+  getSingleLog,
+  updateLog,
+};
