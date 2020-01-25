@@ -20,6 +20,31 @@ class VisitForm extends React.Component {
     newFoodConsumed: '',
   }
 
+  componentDidMount() {
+    const { logId } = this.props.match.params;
+    if (logId) {
+      userLogsData.getSingleLog(logId)
+        .then((response) => {
+          const log = response.data;
+          this.setState({
+            newDate: log.dateOfVisit,
+            newComments: log.comments,
+            newPurpose: log.purposeOfvisit,
+            newWouldRecommend: log.wouldRecommend,
+            newEnvironmentRating: log.environmentRating,
+            newDrinkRating: log.drinkRating,
+            newFoodRating: log.foodRating,
+            newPricingRating: log.pricingRating,
+            newTechRating: log.techRating,
+            newWifiRating: log.wifiRating,
+            newDrinksConsumed: log.drinksConsumed,
+            newFoodConsumed: log.foodConsumed,
+          });
+        })
+        .catch((err) => console.error('err from get single log', err));
+    }
+  }
+
   createNewLogObj = () => {
     const { shopId } = this.props.match.params;
     const {
@@ -56,8 +81,17 @@ class VisitForm extends React.Component {
   }
 
   addNewLog = (e) => {
+    e.preventDefault();
     const { shopId } = this.props.match.params;
     userLogsData.saveNewLog(this.createNewLogObj())
+      .then(() => this.props.history.push(`/shop/${shopId}`))
+      .catch((err) => console.error('err from new Log', err));
+  }
+
+  updateLogEvent = (e) => {
+    e.preventDefault();
+    const { shopId, logId } = this.props.match.params;
+    userLogsData.updateLog(logId, this.createNewLogObj())
       .then(() => this.props.history.push(`/shop/${shopId}`))
       .catch((err) => console.error('err from new Log', err));
   }
@@ -125,6 +159,8 @@ class VisitForm extends React.Component {
       newDrinksConsumed,
       newFoodConsumed,
     } = this.state;
+    const { logId } = this.props.match.params;
+
     return (
       <div className="VisitForm">
         <h1>Log Visit Form</h1>
@@ -260,7 +296,9 @@ class VisitForm extends React.Component {
               onChange={this.changeWifiRating}
             />
           </div>
-        <button className="btn btn-success" onClick={this.addNewLog}>Save New Entry</button>
+        { (logId) ? <button className="btn btn-success" onClick={this.updateLogEvent}>Save Changes</button>
+          : <button className="btn btn-success" onClick={this.addNewLog}>Save New Entry</button>
+        }
       </div>
     );
   }
