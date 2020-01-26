@@ -12,6 +12,7 @@ class SingleShop extends React.Component {
   state = {
     shop: {},
     logs: [],
+    currentTechRating: '',
   }
 
   // Function below brings back the single Shop Information and sets to state
@@ -35,6 +36,7 @@ class SingleShop extends React.Component {
 
   componentDidMount() {
     this.setCurrentShop();
+    this.gatherShopRating();
   }
 
   deleteEntry = (logId) => {
@@ -44,11 +46,25 @@ class SingleShop extends React.Component {
       .catch((err) => console.error('err from delete Log', err));
   }
 
+  addScores = (runningTotal, score) => {
+    return runningTotal + score;
+  }
+
+  gatherShopRating = () => {
+    const { logs } = this.state;
+    const techScores = logs.map((log) => log.techRating);
+    const scoreTotal = techScores.reduce(this.addScores, 0);
+    const averageScore = scoreTotal / logs.length;
+    this.setState({ currentTechRating: averageScore });
+    console.log('rating', averageScore);
+  }
+
   render() {
-    const { shop, logs } = this.state;
+    const { shop, logs, techRating } = this.state;
     return (
       <div className="SingleShop">
         <h1>Shop View</h1>
+        <h3>Tech Rating: {techRating}</h3>
         <Link className="btn btn-success" to={`/shop/${shop.id}/log/new`}>+ Log Visit</Link>
         <VisitLogs logs={logs} deleteEntry={this.deleteEntry} />
       </div>
