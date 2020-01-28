@@ -146,7 +146,7 @@ class ShopForm extends React.Component {
             </div>
           </div>
           { (!isValid) && <h6>This shop already exists!  Please check address and try again.</h6>}
-          <button type="submit" className="btn btn-primary" onClick={this.setNewShop}>Save New Shop</button>
+          <i type="submit" className="btn btn-primary" onClick={this.setNewShop}>Save New Shop</i>
         </form>
       </div>
       </div>
