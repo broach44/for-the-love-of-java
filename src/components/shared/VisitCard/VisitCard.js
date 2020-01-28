@@ -24,7 +24,7 @@ class VisitCard extends React.Component {
         <div className="card justify-text-left">
           <h5 className="card-header">Date of Visit: {log.dateOfVisit}</h5>
           <div className="card-body">
-            <h5 className="card-title">Purpose of Visit: {log.purposeOfVisit}</h5>
+            <h5 className="card-title">Purpose of Visit: {log.purposeOfvisit}</h5>
             <p className="card-text">Drinks: {log.drinksConsumed}</p>
             <p className="card-text">Food: {log.foodConsumed}</p>
             <p className="card-text">Comments: {log.comments}</p>
