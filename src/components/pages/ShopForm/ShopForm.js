@@ -11,6 +11,7 @@ class ShopForm extends React.Component {
     shopCity: '',
     shopState: '',
     shopZip: '',
+    isValid: true,
   }
 
   changeName = (e) => {
@@ -33,7 +34,7 @@ class ShopForm extends React.Component {
     this.setState({ shopZip: e.target.value });
   }
 
-  saveNewShop = (e) => {
+  setNewShop = (e) => {
     e.preventDefault();
     const {
       shopName,
@@ -49,9 +50,28 @@ class ShopForm extends React.Component {
       state: shopState,
       zip: shopZip,
     };
+    this.checkCurrentShopList(newShopObj);
+  }
+
+  saveNewShop = (newShopObj) => {
     coffeeShopData.addNewShop(newShopObj)
       .then(() => this.props.history.push('/shops'))
       .catch((err) => console.error('err from create shop', err));
+  }
+
+  checkCurrentShopList = (shopToAdd) => {
+    const { isValid } = this.state;
+    coffeeShopData.getCoffeeShops(isValid)
+      .then((shops) => {
+        const checkData = shops.some((shop) => shop.address === shopToAdd.address);
+        if (checkData === true) {
+          this.setState({ isValid: false });
+        } else {
+          this.saveNewShop(shopToAdd);
+          this.setState({ isValid: true });
+        }
+      })
+      .catch((error) => console.error(error));
   }
 
   render() {
@@ -61,6 +81,7 @@ class ShopForm extends React.Component {
       shopCity,
       shopState,
       shopZip,
+      isValid,
     } = this.state;
     return (
       <div className="ShopForm">
@@ -124,7 +145,8 @@ class ShopForm extends React.Component {
               />
             </div>
           </div>
-          <button type="submit" className="btn btn-primary" onClick={this.saveNewShop}>Save New Shop</button>
+          { (!isValid) && <h6>This shop already exists!  Please check address and try again.</h6>}
+          <button type="submit" className="btn btn-primary" onClick={this.setNewShop}>Save New Shop</button>
         </form>
       </div>
       </div>
