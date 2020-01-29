@@ -19,6 +19,7 @@ class SingleShop extends React.Component {
     currentWifiRating: '',
     currentPricingRating: '',
     currentTotalRating: '',
+    userLogView: false,
   }
 
   // Function below brings back the single Shop Information and sets to state
@@ -124,6 +125,14 @@ class SingleShop extends React.Component {
     this.totalAverageRating();
   }
 
+  changeViewType = () => {
+    if (this.state.userLogView) {
+      this.setState({ userLogView: false });
+    } else {
+      this.setState({ userLogView: true });
+    }
+  }
+
   render() {
     const {
       shop,
@@ -135,6 +144,7 @@ class SingleShop extends React.Component {
       currentPricingRating,
       currentWifiRating,
       currentTotalRating,
+      userLogView,
     } = this.state;
     return (
       <div className="SingleShop">
@@ -144,7 +154,7 @@ class SingleShop extends React.Component {
             ? <div>
                 <h2>Average Ratings:</h2>
                 <div className="row justify-content-center">
-        <h4 className="col-12">Total Average Rating: {currentTotalRating}</h4>
+                <h4 className="col-12">Total Average Rating: {currentTotalRating}</h4>
                   <h4 className="col-3">Tech Rating: {currentTechRating}</h4>
                   <h4 className="col-3">Drink Rating: {currentDrinkRating}</h4>
                   <h4 className="col-3">Food Rating: {currentFoodRating}</h4>
@@ -156,6 +166,10 @@ class SingleShop extends React.Component {
             : <div><h2>Average Ratings: Not Yet Rated</h2></div>
         }
         <Link className="btn btn-success" to={`/shop/${shop.id}/log/new`}>+ Log Visit</Link>
+        {
+          (userLogView) ? <button className="btn btn-primary" onClick={this.changeViewType}>View All Logs</button>
+            : <button className="btn btn-primary" onClick={this.changeViewType}>View My Logs Only</button>
+        }
         <VisitLogs logs={logs} deleteEntry={this.deleteEntry} />
       </div>
     );
