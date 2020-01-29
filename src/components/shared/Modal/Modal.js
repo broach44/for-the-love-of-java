@@ -4,7 +4,6 @@ import {
   Modal,
   ModalHeader,
   ModalBody,
-  ModalFooter,
 } from 'reactstrap';
 
 import authData from '../../../helpers/data/authData';
@@ -86,7 +85,7 @@ class ModalExample extends React.Component {
             <ModalHeader>Let's Get Started!</ModalHeader>
             <ModalBody>
               <h6>Fill out the form below to create your user profile.</h6>
-              <form className="m-1">
+              <form className="m-1" onSubmit={this.addNewUser}>
                 <div className="form-group">
                   <label htmlFor="userFirstName">First Name</label>
                   <input
@@ -96,6 +95,7 @@ class ModalExample extends React.Component {
                     placeholder=""
                     value={newFirsName}
                     onChange={this.changeFirsName}
+                    required
                   />
                 </div>
                 <div className="form-group">
@@ -107,6 +107,7 @@ class ModalExample extends React.Component {
                     placeholder=""
                     value={newLastName}
                     onChange={this.changeLastName}
+                    required
                   />
                 </div>
                 <div className="form-group">
@@ -118,6 +119,7 @@ class ModalExample extends React.Component {
                     placeholder=""
                     value={newCity}
                     onChange={this.changeCity}
+                    required
                   />
                 </div>
                 <div className="form-group">
@@ -129,13 +131,12 @@ class ModalExample extends React.Component {
                     placeholder=""
                     value={newState}
                     onChange={this.changeState}
+                    required
                   />
                 </div>
-              </form>
+              <Button type="submit" color="primary">Create Profile</Button>{' '}
+            </form>
             </ModalBody>
-            <ModalFooter>
-              <Button color="primary" onClick={this.addNewUser}>Do Something</Button>{' '}
-            </ModalFooter>
           </Modal>
         </div>
       );
