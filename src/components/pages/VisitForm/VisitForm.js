@@ -96,6 +96,15 @@ class VisitForm extends React.Component {
       .catch((err) => console.error('err from new Log', err));
   }
 
+  handleSubmit = (e) => {
+    const { logId } = this.props.match.params;
+    if (logId) {
+      this.addNewLog(e);
+    } else {
+      this.updateLogEvent(e);
+    }
+  }
+
   changeDate = (e) => {
     this.setState({ newDate: e.target.value });
   }
@@ -164,6 +173,7 @@ class VisitForm extends React.Component {
     return (
       <div className="VisitForm">
         <h1>Log Visit Form</h1>
+        <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label for="dateOfVisit">Date of Visit</label>
             <input
@@ -173,6 +183,7 @@ class VisitForm extends React.Component {
               placeholder="1/1/2020"
               value={newDate}
               onChange={this.changeDate}
+              required
             />
           </div>
           <div className="form-group">
@@ -184,6 +195,7 @@ class VisitForm extends React.Component {
               placeholder="Add some comments about the visit"
               value={newComments}
               onChange={this.changeComment}
+              required
             />
           </div>
           <div className="form-group">
@@ -195,6 +207,7 @@ class VisitForm extends React.Component {
               placeholder="What brought you in?"
               value={newPurpose}
               onChange={this.changePurpose}
+              required
             />
           </div>
           <div className="form-group">
@@ -206,6 +219,7 @@ class VisitForm extends React.Component {
               placeholder="Did you grab a beverage? If so list which one..."
               value={newDrinksConsumed}
               onChange={this.changeDrinksConsumed}
+              required
             />
           </div>
           <div className="form-group">
@@ -217,6 +231,7 @@ class VisitForm extends React.Component {
               placeholder="Did you grab a bite to eat? If so list ..."
               value={newFoodConsumed}
               onChange={this.changeFoodConsumed}
+              required
             />
           </div>
           <div className="form-group">
@@ -228,6 +243,7 @@ class VisitForm extends React.Component {
               placeholder="Would you recommend to others?"
               value={newWouldRecommend}
               onChange={this.changeRecommendation}
+              required
             />
           </div>
           <div className="form-group col-2">
@@ -239,6 +255,7 @@ class VisitForm extends React.Component {
               placeholder="Rate the environment on a scale of 1 to 5 (1 is worst, 5 is out of this world)"
               value={newEnvironmentRating}
               onChange={this.changeEnvironmentRating}
+              required
             />
           </div>
           <div className="form-group col-2">
@@ -250,6 +267,7 @@ class VisitForm extends React.Component {
               placeholder="Rate the drink on a scale of 1 to 5 (1 is worst, 5 is out of this world)"
               value={newDrinkRating}
               onChange={this.changeDrinkRating}
+              required
             />
           </div>
           <div className="form-group col-2">
@@ -261,6 +279,7 @@ class VisitForm extends React.Component {
               placeholder="Rate the food on a scale of 1 to 5 (1 is worst, 5 is out of this world)"
               value={newFoodRating}
               onChange={this.changeFoodRating}
+              required
             />
           </div>
           <div className="form-group col-2">
@@ -272,6 +291,7 @@ class VisitForm extends React.Component {
               placeholder="Rate the pricing on a scale of 1 to 5 (1 is worst, 5 is out of this world)"
               value={newPricingRating}
               onChange={this.changePricingRating}
+              required
             />
           </div>
           <div className="form-group col-2">
@@ -283,6 +303,7 @@ class VisitForm extends React.Component {
               placeholder="Rate the tech on a scale of 1 to 5 (1 is worst, 5 is out of this world)"
               value={newTechRating}
               onChange={this.changeTechRating}
+              required
             />
           </div>
           <div className="form-group col-2">
@@ -294,11 +315,13 @@ class VisitForm extends React.Component {
               placeholder="Rate the WiFi on a scale of 1 to 5 (1 is worst, 5 is out of this world)"
               value={newWifiRating}
               onChange={this.changeWifiRating}
+              required
             />
           </div>
-        { (logId) ? <button className="btn btn-success" onClick={this.updateLogEvent}>Save Changes</button>
-          : <button className="btn btn-success" onClick={this.addNewLog}>Save New Entry</button>
+        { (logId) ? <button type="submit" className="btn btn-success">Save Changes</button>
+          : <button type="submit" className="btn btn-success">Save New Entry</button>
         }
+        </form>
       </div>
     );
   }

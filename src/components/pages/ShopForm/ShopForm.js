@@ -87,7 +87,7 @@ class ShopForm extends React.Component {
       <div className="ShopForm">
         <h1>Add Shop Form</h1>
         <div className="container justify-content-center">
-        <form className="m-1">
+        <form className="m-1" onSubmit={this.setNewShop}>
             <div className="form-group">
               <label for="inputName">Name</label>
               <input
@@ -97,6 +97,7 @@ class ShopForm extends React.Component {
                 placeholder="Enter Coffee Shop Name"
                 value={shopName}
                 onChange={this.changeName}
+                required
               />
             </div>
           <div className="form-group">
@@ -108,6 +109,7 @@ class ShopForm extends React.Component {
               placeholder="1234 Main St"
               value={shopAddress}
               onChange={this.changeAddress}
+              required
             />
           </div>
           <div className="form-row">
@@ -120,6 +122,7 @@ class ShopForm extends React.Component {
                 placeholder="Gotham"
                 value={shopCity}
                 onChange={this.changeCity}
+                required
               />
             </div>
             <div className="form-group col-md-4">
@@ -131,6 +134,7 @@ class ShopForm extends React.Component {
                 placeholder="New York"
                 value={shopState}
                 onChange={this.changeState}
+                required
               />
             </div>
             <div className="form-group col-md-2">
@@ -142,11 +146,12 @@ class ShopForm extends React.Component {
                 placeholder="55555"
                 value={shopZip}
                 onChange={this.changeZip}
+                required
               />
             </div>
           </div>
           { (!isValid) && <h6>This shop already exists!  Please check address and try again.</h6>}
-          <button type="submit" className="btn btn-primary" onClick={this.setNewShop}>Save New Shop</button>
+          <button type="submit" className="btn btn-primary">Save New Shop</button>
         </form>
       </div>
       </div>
