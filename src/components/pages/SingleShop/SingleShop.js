@@ -7,6 +7,7 @@ import coffeeShopData from '../../../helpers/data/coffeeShopData';
 import userLogData from '../../../helpers/data/userLogData';
 
 import './SingleShop.scss';
+import authData from '../../../helpers/data/authData';
 
 class SingleShop extends React.Component {
   state = {
@@ -19,6 +20,7 @@ class SingleShop extends React.Component {
     currentWifiRating: '',
     currentPricingRating: '',
     currentTotalRating: '',
+    userLogView: false,
   }
 
   // Function below brings back the single Shop Information and sets to state
@@ -124,6 +126,27 @@ class SingleShop extends React.Component {
     this.totalAverageRating();
   }
 
+  changeViewType = () => {
+    if (this.state.userLogView) {
+      this.setCurrentShop();
+      this.setState({ userLogView: false });
+    }
+    if (!this.state.userLogView) {
+      this.setUserLogs();
+      this.setState({ userLogView: true });
+    }
+  }
+
+  setUserLogs = () => {
+    const { shopId } = this.props.match.params;
+    userLogData.getLogsByShopId(shopId)
+      .then((logs) => {
+        const userLogs = logs.filter((log) => log.uid === authData.getUid());
+        this.setState({ logs: userLogs });
+      })
+      .catch((err) => console.error('err from setUserLogs', err));
+  }
+
   render() {
     const {
       shop,
@@ -135,16 +158,15 @@ class SingleShop extends React.Component {
       currentPricingRating,
       currentWifiRating,
       currentTotalRating,
+      userLogView,
     } = this.state;
     return (
       <div className="SingleShop">
         <h1>Shop View</h1>
         {
           (logs.length > 0)
-            ? <div>
-                <h2>Average Ratings:</h2>
-                <div className="row justify-content-center">
-        <h4 className="col-12">Total Average Rating: {currentTotalRating}</h4>
+            ? <div className="row justify-content-center">
+                  <h4 className="col-12">Total Average Rating: {currentTotalRating}</h4>
                   <h4 className="col-3">Tech Rating: {currentTechRating}</h4>
                   <h4 className="col-3">Drink Rating: {currentDrinkRating}</h4>
                   <h4 className="col-3">Food Rating: {currentFoodRating}</h4>
@@ -152,11 +174,17 @@ class SingleShop extends React.Component {
                   <h4 className="col-3">Pricing Rating: {currentPricingRating}</h4>
                   <h4 className="col-3">Wifi Rating: {currentWifiRating}</h4>
                 </div>
-              </div>
-            : <div><h2>Average Ratings: Not Yet Rated</h2></div>
+            : <div><h2>Not Yet Rated! Log and rate your visit now!</h2></div>
         }
         <Link className="btn btn-success" to={`/shop/${shop.id}/log/new`}>+ Log Visit</Link>
-        <VisitLogs logs={logs} deleteEntry={this.deleteEntry} />
+        {
+          (userLogView) ? <button className="btn btn-primary" onClick={this.changeViewType}>View All Logs</button>
+            : <button className="btn btn-primary" onClick={this.changeViewType}>View My Logs Only</button>
+        }
+        {
+          (userLogView && logs.length === 0) ? <h2>You have not reviewed this shop yet!  Click the button above to add a new visit.</h2>
+            : <VisitLogs logs={logs} deleteEntry={this.deleteEntry} />
+        }
       </div>
     );
   }
