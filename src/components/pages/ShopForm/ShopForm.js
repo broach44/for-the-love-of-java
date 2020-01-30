@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import coffeeShopData from '../../../helpers/data/coffeeShopData';
 
@@ -31,7 +32,8 @@ class ShopForm extends React.Component {
   }
 
   changeZip = (e) => {
-    this.setState({ shopZip: e.target.value });
+    const num = parseInt(e.target.value, 10);
+    this.setState({ shopZip: num });
   }
 
   setNewShop = (e) => {
@@ -89,7 +91,7 @@ class ShopForm extends React.Component {
         <div className="container justify-content-center">
         <form className="m-1" onSubmit={this.setNewShop}>
             <div className="form-group">
-              <label for="inputName">Name</label>
+              <label htmlFor="inputName">Name</label>
               <input
                 type="text"
                 className="form-control"
@@ -101,7 +103,7 @@ class ShopForm extends React.Component {
               />
             </div>
           <div className="form-group">
-            <label for="inputAddress">Address</label>
+            <label htmlFor="inputAddress">Address</label>
             <input
               type="text"
               className="form-control"
@@ -114,7 +116,7 @@ class ShopForm extends React.Component {
           </div>
           <div className="form-row">
             <div className="form-group col-md-6">
-              <label for="inputCity">City</label>
+              <label htmlFor="inputCity">City</label>
               <input
                 type="text"
                 className="form-control"
@@ -126,7 +128,7 @@ class ShopForm extends React.Component {
               />
             </div>
             <div className="form-group col-md-4">
-              <label for="inputState">State</label>
+              <label htmlFor="inputState">State</label>
               <input
                 type="text"
                 className="form-control"
@@ -138,7 +140,7 @@ class ShopForm extends React.Component {
               />
             </div>
             <div className="form-group col-md-2">
-              <label for="inputZip">Zip</label>
+              <label htmlFor="inputZip">Zip</label>
               <input
                 type="number"
                 className="form-control"
@@ -152,6 +154,7 @@ class ShopForm extends React.Component {
           </div>
           { (!isValid) && <h6>This shop already exists!  Please check address and try again.</h6>}
           <button type="submit" className="btn btn-primary">Save New Shop</button>
+          <Link className="btn btn-danger" to="/shops">Cancel</Link>
         </form>
       </div>
       </div>

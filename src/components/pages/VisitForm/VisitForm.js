@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormGroup, Label, Input } from 'reactstrap';
 
 import userLogsData from '../../../helpers/data/userLogData';
 import authData from '../../../helpers/data/authData';
@@ -29,7 +30,7 @@ class VisitForm extends React.Component {
           this.setState({
             newDate: log.dateOfVisit,
             newComments: log.comments,
-            newPurpose: log.purposeOfvisit,
+            newPurpose: log.purposeOfVisit,
             newWouldRecommend: log.wouldRecommend,
             newEnvironmentRating: log.environmentRating,
             newDrinkRating: log.drinkRating,
@@ -64,8 +65,8 @@ class VisitForm extends React.Component {
     const newLogObj = {
       dateOfVisit: newDate,
       comments: newComments,
-      purposeOfvisit: newPurpose,
-      wouldRecommend: newWouldRecommend,
+      purposeOfVisit: newPurpose,
+      wouldRecommend: Boolean(newWouldRecommend),
       environmentRating: newEnvironmentRating,
       drinkRating: newDrinkRating,
       foodRating: newFoodRating,
@@ -130,27 +131,33 @@ class VisitForm extends React.Component {
   }
 
   changeEnvironmentRating = (e) => {
-    this.setState({ newEnvironmentRating: e.target.value });
+    const num = parseInt(e.target.value, 10);
+    this.setState({ newEnvironmentRating: num });
   }
 
   changeDrinkRating = (e) => {
-    this.setState({ newDrinkRating: e.target.value });
+    const num = parseInt(e.target.value, 10);
+    this.setState({ newDrinkRating: num });
   }
 
   changeFoodRating = (e) => {
-    this.setState({ newFoodRating: e.target.value });
+    const num = parseInt(e.target.value, 10);
+    this.setState({ newFoodRating: num });
   }
 
   changePricingRating = (e) => {
-    this.setState({ newPricingRating: e.target.value });
+    const num = parseInt(e.target.value, 10);
+    this.setState({ newPricingRating: num });
   }
 
   changeTechRating = (e) => {
-    this.setState({ newTechRating: e.target.value });
+    const num = parseInt(e.target.value, 10);
+    this.setState({ newTechRating: num });
   }
 
   changeWifiRating = (e) => {
-    this.setState({ newWifiRating: e.target.value });
+    const num = parseInt(e.target.value, 10);
+    this.setState({ newWifiRating: num });
   }
 
   render() {
@@ -158,7 +165,7 @@ class VisitForm extends React.Component {
       newDate,
       newComments,
       newPurpose,
-      newWouldRecommend,
+      // newWouldRecommend,
       newEnvironmentRating,
       newDrinkRating,
       newFoodRating,
@@ -174,20 +181,19 @@ class VisitForm extends React.Component {
       <div className="VisitForm">
         <h1>Log Visit Form</h1>
         <form onSubmit={this.handleSubmit}>
-          <div className="form-group">
-            <label for="dateOfVisit">Date of Visit</label>
+          <div className="form-group col-2">
+            <label htmlFor="dateOfVisit">Date of Visit</label>
             <input
-              type="text"
+              type="date"
               className="form-control"
               id="dateOfVisit"
-              placeholder="1/1/2020"
               value={newDate}
               onChange={this.changeDate}
               required
             />
           </div>
           <div className="form-group">
-            <label for="comments">Comments</label>
+            <label htmlFor="comments">Comments</label>
             <input
               type="text"
               className="form-control"
@@ -199,7 +205,7 @@ class VisitForm extends React.Component {
             />
           </div>
           <div className="form-group">
-            <label for="purposeOfVisit">Purpose of Visit</label>
+            <label htmlFor="purposeOfVisit">Purpose of Visit</label>
             <input
               type="text"
               className="form-control"
@@ -211,7 +217,7 @@ class VisitForm extends React.Component {
             />
           </div>
           <div className="form-group">
-            <label for="DrinksConsumed">Beverage enjoyed:</label>
+            <label htmlFor="DrinksConsumed">Beverage enjoyed:</label>
             <input
               type="text"
               className="form-control"
@@ -223,7 +229,7 @@ class VisitForm extends React.Component {
             />
           </div>
           <div className="form-group">
-            <label for="FoodConsumed">Food Enjoyed: </label>
+            <label htmlFor="FoodConsumed">Food Enjoyed: </label>
             <input
               type="text"
               className="form-control"
@@ -234,20 +240,34 @@ class VisitForm extends React.Component {
               required
             />
           </div>
-          <div className="form-group">
-            <label for="Recommendation">Recommendation: </label>
-            <input
-              type="text"
-              className="form-control"
-              id="Recommendation"
-              placeholder="Would you recommend to others?"
-              value={newWouldRecommend}
+
+          <legend>Radio Buttons</legend>
+        <FormGroup check>
+          <Label check>
+            <Input
+              type="radio"
+              name="recommendationRadio"
+              value="true"
               onChange={this.changeRecommendation}
               required
-            />
-          </div>
+              />{' '}
+            Definitely would recommend
+          </Label>
+        </FormGroup>
+        <FormGroup check>
+          <Label check>
+            <Input
+              type="radio"
+              name="recommendationRadio"
+              value="false"
+              onChange={this.changeRecommendation}
+              required
+              />{' '}
+            No I would not recommend
+          </Label>
+        </FormGroup>
           <div className="form-group col-2">
-            <label for="EnvironmentRating">Environment Rating: </label>
+            <label htmlFor="EnvironmentRating">Environment Rating: </label>
             <input
               type="number"
               className="form-control"
@@ -259,7 +279,7 @@ class VisitForm extends React.Component {
             />
           </div>
           <div className="form-group col-2">
-            <label for="DrinkRating">Drink Rating: </label>
+            <label htmlFor="DrinkRating">Drink Rating: </label>
             <input
               type="number"
               className="form-control"
@@ -271,7 +291,7 @@ class VisitForm extends React.Component {
             />
           </div>
           <div className="form-group col-2">
-            <label for="FoodRating">Food Rating: </label>
+            <label htmlFor="FoodRating">Food Rating: </label>
             <input
               type="number"
               className="form-control"
@@ -283,7 +303,7 @@ class VisitForm extends React.Component {
             />
           </div>
           <div className="form-group col-2">
-            <label for="PricingRating">Pricing Rating: </label>
+            <label htmlFor="PricingRating">Pricing Rating: </label>
             <input
               type="number"
               className="form-control"
@@ -295,7 +315,7 @@ class VisitForm extends React.Component {
             />
           </div>
           <div className="form-group col-2">
-            <label for="TechRating">Tech Rating: </label>
+            <label htmlFor="TechRating">Tech Rating: </label>
             <input
               type="number"
               className="form-control"
@@ -307,7 +327,7 @@ class VisitForm extends React.Component {
             />
           </div>
           <div className="form-group col-2">
-            <label for="WifiRating">Wifi Rating: </label>
+            <label htmlFor="WifiRating">Wifi Rating: </label>
             <input
               type="number"
               className="form-control"
