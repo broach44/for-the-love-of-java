@@ -37,6 +37,7 @@ class Shops extends React.Component {
     const { filteredShops } = this.state;
     return (
       <div className="Shops">
+        <div className="shopHeader">
         <h1>Shops</h1>
         <Link className="btn btn-primary" to="/shop/new">Add New Shop</Link>
         <form className="row justify-content-center">
@@ -45,6 +46,7 @@ class Shops extends React.Component {
             <small>Enter the name of shop or address of shop you are looking for.</small>
           </div>
         </form>
+        </div>
         <div className="row justify-content-center mt-3">
         {
           (filteredShops.length === 0) ? <h3>No results found</h3> : filteredShops.map((shop) => <ShopCard key={shop.id} shop={shop} />)

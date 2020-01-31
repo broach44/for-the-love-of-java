@@ -23,12 +23,12 @@ class MainNavbar extends React.Component {
       <div className="MainNavbar">
 
 
-        <nav className="navbar navbar-expand-lg navbar-dark">
+        <nav className="navbar navbar-expand-lg">
           <span className="navbar-brand h1">For the Love of Java</span>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
-          <ul className="navbar-nav mr-auto">
+          <ul className="navbar-nav ml-4 mr-auto">
             <li className="nav-item">
               <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
             </li>
@@ -41,7 +41,7 @@ class MainNavbar extends React.Component {
           </ul>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             {
-              (authed) && <button className="btn btn-danger ml-auto" onClick={this.logMeOut}>Logout</button>
+              (authed) && <button className="btn btn-outline-light ml-auto logoutButton" onClick={this.logMeOut}>Logout</button>
             }
           </div>
         </nav>

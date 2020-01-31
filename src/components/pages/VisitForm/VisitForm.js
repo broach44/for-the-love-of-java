@@ -180,7 +180,8 @@ class VisitForm extends React.Component {
     return (
       <div className="VisitForm">
         <h1>Log Visit Form</h1>
-        <form onSubmit={this.handleSubmit}>
+        <form className="container w-85 justify-content-center" onSubmit={this.handleSubmit}>
+          <div className="row">
           <div className="form-group col-2">
             <label htmlFor="dateOfVisit">Date of Visit</label>
             <input
@@ -192,6 +193,19 @@ class VisitForm extends React.Component {
               required
             />
           </div>
+          <div className="form-group col-6">
+            <label htmlFor="purposeOfVisit">Purpose of Visit</label>
+            <input
+              type="text"
+              className="form-control"
+              id="purposeOfVisit"
+              placeholder="What brought you in?"
+              value={newPurpose}
+              onChange={this.changePurpose}
+              required
+            />
+          </div>
+          </div>
           <div className="form-group">
             <label htmlFor="comments">Comments</label>
             <input
@@ -201,18 +215,6 @@ class VisitForm extends React.Component {
               placeholder="Add some comments about the visit"
               value={newComments}
               onChange={this.changeComment}
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="purposeOfVisit">Purpose of Visit</label>
-            <input
-              type="text"
-              className="form-control"
-              id="purposeOfVisit"
-              placeholder="What brought you in?"
-              value={newPurpose}
-              onChange={this.changePurpose}
               required
             />
           </div>
@@ -266,7 +268,8 @@ class VisitForm extends React.Component {
             No I would not recommend
           </Label>
         </FormGroup>
-          <div className="form-group col-2">
+        <div className="row">
+          <div className="form-group col">
             <label htmlFor="EnvironmentRating">Environment Rating: </label>
             <input
               type="number"
@@ -280,7 +283,7 @@ class VisitForm extends React.Component {
               required
             />
           </div>
-          <div className="form-group col-2">
+          <div className="form-group col">
             <label htmlFor="DrinkRating">Drink Rating: </label>
             <input
               type="number"
@@ -306,7 +309,7 @@ class VisitForm extends React.Component {
               required
             />
           </div>
-          <div className="form-group col-2">
+          <div className="form-group col">
             <label htmlFor="PricingRating">Pricing Rating: </label>
             <input
               type="number"
@@ -320,7 +323,7 @@ class VisitForm extends React.Component {
               required
             />
           </div>
-          <div className="form-group col-2">
+          <div className="form-group col">
             <label htmlFor="TechRating">Tech Rating: </label>
             <input
               type="number"
@@ -334,7 +337,7 @@ class VisitForm extends React.Component {
               required
             />
           </div>
-          <div className="form-group col-2">
+          <div className="form-group col">
             <label htmlFor="WifiRating">Wifi Rating: </label>
             <input
               type="number"
@@ -347,6 +350,7 @@ class VisitForm extends React.Component {
               onChange={this.changeWifiRating}
               required
             />
+            </div>
           </div>
         { (logId) ? <button type="submit" className="btn btn-success">Save Changes</button>
           : <button type="submit" className="btn btn-success">Save New Entry</button>

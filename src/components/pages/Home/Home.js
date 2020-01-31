@@ -1,4 +1,5 @@
 import React from 'react';
+import { Jumbotron, Container } from 'reactstrap';
 
 import authData from '../../../helpers/data/authData';
 import userProfileData from '../../../helpers/data/userProfileData';
@@ -27,11 +28,19 @@ class Home extends React.Component {
     const { user } = this.state;
     return (
       <div className="Home">
-        <h1>Home</h1>
-        {
-          (user.uid === authData.getUid()) ? <h1>There is a profile!!</h1>
-            : <ModalExample />
-        }
+        <div>
+          <Jumbotron className="HomeJumbotron" fluid>
+            <Container fluid>
+              <h1 className="display-3">Welcome {user.firsName}!</h1>
+              <p className="lead w-75 text-center mx-auto">We know if you have found us then you love coffee just as much as we do!
+              Browse through our ever growing database of coffee shops and see what suits your caffeinated ways!</p>
+              {
+                (user.uid === authData.getUid()) ? <button className="btn btn-light startButton">Let's Get Started!</button>
+                  : <ModalExample />
+              }
+            </Container>
+          </Jumbotron>
+        </div>
       </div>
     );
   }
