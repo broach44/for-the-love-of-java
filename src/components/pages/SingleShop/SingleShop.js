@@ -147,6 +147,8 @@ class SingleShop extends React.Component {
       .catch((err) => console.error('err from setUserLogs', err));
   }
 
+  renderNumber = () => '75%'
+
   render() {
     const {
       shop,
@@ -162,17 +164,34 @@ class SingleShop extends React.Component {
     } = this.state;
     return (
       <div className="SingleShop">
-        <h1>Shop View</h1>
+        <h1>{shop.name}</h1>
         {
           (logs.length > 0)
             ? <div className="row justify-content-center">
                   <h4 className="col-12">Total Average Rating: {currentTotalRating}</h4>
-                  <h4 className="col-3">Tech Rating: {currentTechRating}</h4>
-                  <h4 className="col-3">Drink Rating: {currentDrinkRating}</h4>
-                  <h4 className="col-3">Food Rating: {currentFoodRating}</h4>
-                  <h4 className="col-3">Environment Rating: {currentEnvironmentRating}</h4>
-                  <h4 className="col-3">Pricing Rating: {currentPricingRating}</h4>
-                  <h4 className="col-3">Wifi Rating: {currentWifiRating}</h4>
+                  <p>{logs.length} User Reviews</p>
+                  <div className="progress">
+                    <div className="progress-bar bg-success"
+                      role="progressbar"
+                      style={{ width: this.renderNumber() }}
+                      aria-valuenow="25"
+                      aria-valuemin="0"
+                      aria-valuemax="100">
+                    </div>
+                  </div>
+                  <div className="card">
+                    <div className="card-header">
+                      <h5>By Feature:</h5>
+                    </div>
+                    <div className="card-body">
+                      <p>Tech Rating: {currentTechRating}</p>
+                      <p>Drink Rating: {currentDrinkRating}</p>
+                      <p>Food Rating: {currentFoodRating}</p>
+                      <p>Environment Rating: {currentEnvironmentRating}</p>
+                      <p>Pricing Rating: {currentPricingRating}</p>
+                      <p>Wifi Rating: {currentWifiRating}</p>
+                    </div>
+                  </div>
                 </div>
             : <div><h2>Not Yet Rated! Log and rate your visit now!</h2></div>
         }
@@ -181,6 +200,7 @@ class SingleShop extends React.Component {
           (userLogView) ? <button className="btn btn-primary" onClick={this.changeViewType}>View All Logs</button>
             : <button className="btn btn-primary" onClick={this.changeViewType}>View My Logs Only</button>
         }
+        
         {
           (userLogView && logs.length === 0) ? <h2>You have not reviewed this shop yet!  Click the button above to add a new visit.</h2>
             : <VisitLogs logs={logs} deleteEntry={this.deleteEntry} />

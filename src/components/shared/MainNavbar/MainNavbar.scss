@@ -8,11 +8,16 @@
     border-radius: 2rem;
     margin: 1rem;
     &:hover {
-      background-color: rgba(245, 222, 179, 0.603);
+      background-color: $cream;
       transition: all .5s ease;
     }
   }
   .logoutButton {
     border-radius: 2rem;
+    border: 1px solid $cream;
+    color: $cream;
+    &:hover {
+      background-color: $cream;
+    }
   }
 }

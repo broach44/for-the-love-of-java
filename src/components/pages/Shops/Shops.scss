@@ -1,10 +1,24 @@
+@import '../../../styles/variables.scss';
+
 .Shops {
   padding-top: 0;
   margin-top: 0;
 
-  .shopHeader {
-    width: 100%;
-    position: fixed;
-    z-index: 2;
+  .searchInput {
+    background-color: $cream;
+    opacity: .7;
+    &::placeholder {
+      color: $brown;
+    }
+    &:focus {
+      box-shadow: 0 0 15px $darkbrown;
+      border: 1px solid $darkbrown;
+    }
   }
+
+  // .shopHeader {
+  //   width: 100%;
+  //   position: fixed;
+  //   z-index: 2;
+  // }
 }

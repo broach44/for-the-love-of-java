@@ -42,7 +42,7 @@ class Shops extends React.Component {
         <Link className="btn btn-primary" to="/shop/new">Add New Shop</Link>
         <form className="row justify-content-center">
           <div className="form-group m-3 col-6">
-            <input type="search" aria-label="Search" className="form-control" id="SearchShopInput" placeholder="Search through shops..." onChange={this.searchThroughShops} />
+            <input type="search" aria-label="Search" className="form-control searchInput" id="SearchShopInput" placeholder="Search through shops..." onChange={this.searchThroughShops} />
             <small>Enter the name of shop or address of shop you are looking for.</small>
           </div>
         </form>

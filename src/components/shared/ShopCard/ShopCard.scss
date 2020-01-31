@@ -1,0 +1,22 @@
+@import '../../../styles/variables';
+.ShopCard {
+  .card {
+    box-shadow: 5px 5px 10px $darkbrown;
+    border-radius: 0;
+    background-color: $cream; 
+    opacity: 0.952;
+    border: none;
+    &:hover {
+      border: 1px solid $darkbrown;
+    }
+    .btn {
+      background-color: $darkbrown;
+      border: none;
+      border-radius: 50px;
+      padding: .5rem;
+      &:hover {
+        box-shadow: $shadow;
+      }
+    }
+  }
+}
