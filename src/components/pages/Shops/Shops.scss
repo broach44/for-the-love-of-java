@@ -16,9 +16,16 @@
     }
   }
 
-  // .shopHeader {
-  //   width: 100%;
-  //   position: fixed;
-  //   z-index: 2;
-  // }
+  .addShopBtn {
+    background-color: none;
+    border: 1px solid $darkbrown;
+    color: $darkbrown;
+    &:hover {
+      background-color: $darkbrown;
+      color: $cream;
+      transition: 1s ease;
+      box-shadow: 5px 5px 5px black;
+    }
+  }
+
 }

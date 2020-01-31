@@ -1,9 +1,44 @@
+@import '../../../styles/variables.scss';
+
 .SingleShop {
   .progress {
     background-color: gray;
     width: 100%;
     .progress-bar {
       background-color: red;
+    }
+  }
+
+  .logViewBtn {
+    background-color: none;
+    margin: 2px;
+    border: 1px solid $darkbrown;
+    color: $darkbrown;
+    &:hover {
+      background-color: $darkbrown;
+      color: $cream;
+      transition: 1s ease;
+    }
+  }
+
+  .card-header {
+    text-align: left;
+    padding: 0;
+  }
+
+  .card-body {
+    padding: 0;
+    text-align: left;
+  }
+
+  .ratingCard {
+    padding: 2px;
+    margin: 5px;
+    border-radius: 0;
+    box-shadow: 5px 5px 5px $darkbrown;
+    p {
+      margin: 1px;
+      padding: 0;
     }
   }
 }

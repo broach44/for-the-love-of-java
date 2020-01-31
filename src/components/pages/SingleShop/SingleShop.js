@@ -171,15 +171,15 @@ class SingleShop extends React.Component {
                   <h4 className="col-12">Total Average Rating: {currentTotalRating}</h4>
                   <p>{logs.length} User Reviews</p>
                   <div className="progress">
-                    <div className="progress-bar bg-success"
+                    {/* <div className="progress-bar bg-success"
                       role="progressbar"
                       style={{ width: this.renderNumber() }}
                       aria-valuenow="25"
                       aria-valuemin="0"
                       aria-valuemax="100">
-                    </div>
+                    </div> */}
                   </div>
-                  <div className="card">
+                  <div className="card ratingCard">
                     <div className="card-header">
                       <h5>By Feature:</h5>
                     </div>
@@ -197,10 +197,9 @@ class SingleShop extends React.Component {
         }
         <Link className="btn btn-success" to={`/shop/${shop.id}/log/new`}>+ Log Visit</Link>
         {
-          (userLogView) ? <button className="btn btn-primary" onClick={this.changeViewType}>View All Logs</button>
-            : <button className="btn btn-primary" onClick={this.changeViewType}>View My Logs Only</button>
+          (userLogView) ? <button className="btn logViewBtn" onClick={this.changeViewType}>View All Logs</button>
+            : <button className="btn logViewBtn" onClick={this.changeViewType}>View My Logs Only</button>
         }
-        
         {
           (userLogView && logs.length === 0) ? <h2>You have not reviewed this shop yet!  Click the button above to add a new visit.</h2>
             : <VisitLogs logs={logs} deleteEntry={this.deleteEntry} />
