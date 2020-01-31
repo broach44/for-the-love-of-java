@@ -272,7 +272,9 @@ class VisitForm extends React.Component {
               type="number"
               className="form-control"
               id="EnvironmentRating"
-              placeholder="Rate the environment on a scale of 1 to 5 (1 is worst, 5 is out of this world)"
+              placeholder="Enter number 0-5"
+              min="0"
+              max="5"
               value={newEnvironmentRating}
               onChange={this.changeEnvironmentRating}
               required
@@ -284,19 +286,21 @@ class VisitForm extends React.Component {
               type="number"
               className="form-control"
               id="DrinkRating"
-              placeholder="Rate the drink on a scale of 1 to 5 (1 is worst, 5 is out of this world)"
+              placeholder="Enter number 0-5"
+              min="0"
+              max="5"
               value={newDrinkRating}
               onChange={this.changeDrinkRating}
               required
             />
-          </div>
-          <div className="form-group col-2">
             <label htmlFor="FoodRating">Food Rating: </label>
             <input
               type="number"
               className="form-control"
               id="FoodRating"
-              placeholder="Rate the food on a scale of 1 to 5 (1 is worst, 5 is out of this world)"
+              placeholder="Enter number 0-5"
+              min="0"
+              max="5"
               value={newFoodRating}
               onChange={this.changeFoodRating}
               required
@@ -308,7 +312,9 @@ class VisitForm extends React.Component {
               type="number"
               className="form-control"
               id="PricingRating"
-              placeholder="Rate the pricing on a scale of 1 to 5 (1 is worst, 5 is out of this world)"
+              placeholder="Enter number 0-5"
+              min="0"
+              max="5"
               value={newPricingRating}
               onChange={this.changePricingRating}
               required
@@ -320,7 +326,9 @@ class VisitForm extends React.Component {
               type="number"
               className="form-control"
               id="TechRating"
-              placeholder="Rate the tech on a scale of 1 to 5 (1 is worst, 5 is out of this world)"
+              placeholder="Enter number 0-5"
+              min="0"
+              max="5"
               value={newTechRating}
               onChange={this.changeTechRating}
               required
@@ -332,7 +340,9 @@ class VisitForm extends React.Component {
               type="number"
               className="form-control"
               id="WifiRating"
-              placeholder="Rate the WiFi on a scale of 1 to 5 (1 is worst, 5 is out of this world)"
+              placeholder="Enter number 0-5"
+              min="0"
+              max="5"
               value={newWifiRating}
               onChange={this.changeWifiRating}
               required

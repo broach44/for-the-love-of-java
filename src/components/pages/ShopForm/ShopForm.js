@@ -32,8 +32,7 @@ class ShopForm extends React.Component {
   }
 
   changeZip = (e) => {
-    const num = parseInt(e.target.value, 10);
-    this.setState({ shopZip: num });
+    this.setState({ shopZip: e.target.value });
   }
 
   setNewShop = (e) => {
@@ -142,10 +141,11 @@ class ShopForm extends React.Component {
             <div className="form-group col-md-2">
               <label htmlFor="inputZip">Zip</label>
               <input
-                type="number"
+                type="text"
                 className="form-control"
                 id="inputZip"
-                placeholder="55555"
+                placeholder="5 or 9 digit zip"
+                pattern="\d{5}-?(\d{4})?"
                 value={shopZip}
                 onChange={this.changeZip}
                 required

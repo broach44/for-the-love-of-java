@@ -6,7 +6,7 @@ const shopShape = PropTypes.shape({
   address: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
   state: PropTypes.string.isRequired,
-  zip: PropTypes.number.isRequired,
+  zip: PropTypes.string.isRequired,
 });
 
 export default { shopShape };
