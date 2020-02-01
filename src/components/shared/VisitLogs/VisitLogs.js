@@ -18,9 +18,11 @@ class VisitLogs extends React.Component {
     return (
       <div className="VisitLogs">
         <h1>Visit Logs</h1>
+        <div className="row justify-content-around">
         {
           logs.map((log) => <VisitCard key={log.id} log={log} deleteEntry={deleteEntry} />)
         }
+        </div>
       </div>
     );
   }

@@ -1,0 +1,31 @@
+@import '../../../styles/variables.scss';
+
+.Shops {
+  padding-top: 0;
+  margin-top: 0;
+
+  .searchInput {
+    background-color: $cream;
+    opacity: .7;
+    &::placeholder {
+      color: $brown;
+    }
+    &:focus {
+      box-shadow: 0 0 15px $darkbrown;
+      border: 1px solid $darkbrown;
+    }
+  }
+
+  .addShopBtn {
+    background-color: none;
+    border: 1px solid $darkbrown;
+    color: $darkbrown;
+    &:hover {
+      background-color: $darkbrown;
+      color: $cream;
+      transition: 1s ease;
+      box-shadow: 5px 5px 5px black;
+    }
+  }
+
+}

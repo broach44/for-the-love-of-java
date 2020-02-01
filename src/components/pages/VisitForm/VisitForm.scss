@@ -1,0 +1,19 @@
+@import '../../../styles/variables';
+
+.VisitForm {
+  color: $darkbrown;
+  text-shadow: 1px 1px 1px $cream;
+  .input {
+    border-radius: 0!important;
+  }
+  .btn {
+    background-color: $cream;
+    color: $darkbrown;
+    margin-bottom: 25px;
+    &:hover {
+      background-color: $darkbrown;
+      color: $cream;
+      box-shadow: 5px 5px 5px black;
+    }
+  }
+}

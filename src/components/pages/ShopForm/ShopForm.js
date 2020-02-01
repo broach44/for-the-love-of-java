@@ -86,7 +86,8 @@ class ShopForm extends React.Component {
     } = this.state;
     return (
       <div className="ShopForm">
-        <h1>Add Shop Form</h1>
+        <h1>Add New Shop</h1>
+        <p>Fill out all of the following fields below and click button to save.</p>
         <div className="container justify-content-center">
         <form className="m-1" onSubmit={this.setNewShop}>
             <div className="form-group">

@@ -2,6 +2,7 @@ import React from 'react';
 import { FormGroup, Label, Input } from 'reactstrap';
 
 import userLogsData from '../../../helpers/data/userLogData';
+import coffeeShopData from '../../../helpers/data/coffeeShopData';
 import authData from '../../../helpers/data/authData';
 import './VisitForm.scss';
 
@@ -19,10 +20,11 @@ class VisitForm extends React.Component {
     newWifiRating: '',
     newDrinksConsumed: '',
     newFoodConsumed: '',
+    shop: {},
   }
 
   componentDidMount() {
-    const { logId } = this.props.match.params;
+    const { logId, shopId } = this.props.match.params;
     if (logId) {
       userLogsData.getSingleLog(logId)
         .then((response) => {
@@ -44,6 +46,12 @@ class VisitForm extends React.Component {
         })
         .catch((err) => console.error('err from get single log', err));
     }
+    coffeeShopData.getSingleShop(shopId)
+      .then((request) => {
+        const shop = request.data;
+        this.setState({ shop });
+      })
+      .catch((err) => console.error('errFromSingleShop', err));
   }
 
   createNewLogObj = () => {
@@ -100,9 +108,9 @@ class VisitForm extends React.Component {
   handleSubmit = (e) => {
     const { logId } = this.props.match.params;
     if (logId) {
-      this.addNewLog(e);
-    } else {
       this.updateLogEvent(e);
+    } else {
+      this.addNewLog(e);
     }
   }
 
@@ -165,7 +173,6 @@ class VisitForm extends React.Component {
       newDate,
       newComments,
       newPurpose,
-      // newWouldRecommend,
       newEnvironmentRating,
       newDrinkRating,
       newFoodRating,
@@ -174,13 +181,16 @@ class VisitForm extends React.Component {
       newWifiRating,
       newDrinksConsumed,
       newFoodConsumed,
+      shop,
     } = this.state;
     const { logId } = this.props.match.params;
 
     return (
       <div className="VisitForm">
-        <h1>Log Visit Form</h1>
-        <form onSubmit={this.handleSubmit}>
+        <h1>Log Visit for {shop.name}</h1>
+        <p>Fill out all of the fields below and click save to record your visit to the shop.</p>
+        <form className="container w-85 justify-content-center" onSubmit={this.handleSubmit}>
+          <div className="row">
           <div className="form-group col-2">
             <label htmlFor="dateOfVisit">Date of Visit</label>
             <input
@@ -192,6 +202,19 @@ class VisitForm extends React.Component {
               required
             />
           </div>
+          <div className="form-group col-6">
+            <label htmlFor="purposeOfVisit">Purpose of Visit</label>
+            <input
+              type="text"
+              className="form-control"
+              id="purposeOfVisit"
+              placeholder="What brought you in?"
+              value={newPurpose}
+              onChange={this.changePurpose}
+              required
+            />
+          </div>
+          </div>
           <div className="form-group">
             <label htmlFor="comments">Comments</label>
             <input
@@ -201,18 +224,6 @@ class VisitForm extends React.Component {
               placeholder="Add some comments about the visit"
               value={newComments}
               onChange={this.changeComment}
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="purposeOfVisit">Purpose of Visit</label>
-            <input
-              type="text"
-              className="form-control"
-              id="purposeOfVisit"
-              placeholder="What brought you in?"
-              value={newPurpose}
-              onChange={this.changePurpose}
               required
             />
           </div>
@@ -266,7 +277,8 @@ class VisitForm extends React.Component {
             No I would not recommend
           </Label>
         </FormGroup>
-          <div className="form-group col-2">
+        <div className="row">
+          <div className="form-group col">
             <label htmlFor="EnvironmentRating">Environment Rating: </label>
             <input
               type="number"
@@ -280,7 +292,7 @@ class VisitForm extends React.Component {
               required
             />
           </div>
-          <div className="form-group col-2">
+          <div className="form-group col">
             <label htmlFor="DrinkRating">Drink Rating: </label>
             <input
               type="number"
@@ -306,7 +318,7 @@ class VisitForm extends React.Component {
               required
             />
           </div>
-          <div className="form-group col-2">
+          <div className="form-group col">
             <label htmlFor="PricingRating">Pricing Rating: </label>
             <input
               type="number"
@@ -320,7 +332,7 @@ class VisitForm extends React.Component {
               required
             />
           </div>
-          <div className="form-group col-2">
+          <div className="form-group col">
             <label htmlFor="TechRating">Tech Rating: </label>
             <input
               type="number"
@@ -334,7 +346,7 @@ class VisitForm extends React.Component {
               required
             />
           </div>
-          <div className="form-group col-2">
+          <div className="form-group col">
             <label htmlFor="WifiRating">Wifi Rating: </label>
             <input
               type="number"
@@ -347,9 +359,10 @@ class VisitForm extends React.Component {
               onChange={this.changeWifiRating}
               required
             />
+            </div>
           </div>
-        { (logId) ? <button type="submit" className="btn btn-success">Save Changes</button>
-          : <button type="submit" className="btn btn-success">Save New Entry</button>
+        { (logId) ? <button type="submit" className="btn">Save Changes</button>
+          : <button type="submit" className="btn">Save New Entry</button>
         }
         </form>
       </div>

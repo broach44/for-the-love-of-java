@@ -21,7 +21,7 @@ class VisitCard extends React.Component {
   render() {
     const { log } = this.props;
     return (
-      <div className="VisitCard">
+      <div className="VisitCard col-4">
         <div className="card justify-text-left">
           <h5 className="card-header">Date of Visit: {moment(log.dateOfVisit).format(' LL ')}</h5>
           <div className="card-body">

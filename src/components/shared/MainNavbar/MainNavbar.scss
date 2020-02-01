@@ -1,6 +1,23 @@
 @import '../../../styles/variables';
 
 .navbar {
-  background-color: $darkbrown!important;
-  box-shadow: $shadow;
+  color: $darkbrown;
+  
+  .nav-link {
+    color: $darkbrown;
+    border-radius: 2rem;
+    margin: 1rem;
+    &:hover {
+      background-color: $cream;
+      transition: all .5s ease;
+    }
+  }
+  .logoutButton {
+    border-radius: 2rem;
+    border: 1px solid $cream;
+    color: $cream;
+    &:hover {
+      background-color: $cream;
+    }
+  }
 }
