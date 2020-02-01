@@ -84,7 +84,7 @@ class SingleShop extends React.Component {
   averageDrinkRating = (logs) => {
     const drinkScores = logs.map((log) => log.drinkRating);
     const scoreTotal = drinkScores.reduce(this.addScores, 0);
-    const averageScore = scoreTotal / logs.length;
+    const averageScore = parseInt(scoreTotal / logs.length, 10);
     this.setState({ currentDrinkRating: averageScore });
   }
 
