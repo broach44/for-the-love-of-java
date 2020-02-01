@@ -2,6 +2,7 @@ import React from 'react';
 import { FormGroup, Label, Input } from 'reactstrap';
 
 import userLogsData from '../../../helpers/data/userLogData';
+import coffeeShopData from '../../../helpers/data/coffeeShopData';
 import authData from '../../../helpers/data/authData';
 import './VisitForm.scss';
 
@@ -19,10 +20,11 @@ class VisitForm extends React.Component {
     newWifiRating: '',
     newDrinksConsumed: '',
     newFoodConsumed: '',
+    shop: {},
   }
 
   componentDidMount() {
-    const { logId } = this.props.match.params;
+    const { logId, shopId } = this.props.match.params;
     if (logId) {
       userLogsData.getSingleLog(logId)
         .then((response) => {
@@ -44,6 +46,12 @@ class VisitForm extends React.Component {
         })
         .catch((err) => console.error('err from get single log', err));
     }
+    coffeeShopData.getSingleShop(shopId)
+      .then((request) => {
+        const shop = request.data;
+        this.setState({ shop });
+      })
+      .catch((err) => console.error('errFromSingleShop', err));
   }
 
   createNewLogObj = () => {
@@ -100,9 +108,9 @@ class VisitForm extends React.Component {
   handleSubmit = (e) => {
     const { logId } = this.props.match.params;
     if (logId) {
-      this.addNewLog(e);
-    } else {
       this.updateLogEvent(e);
+    } else {
+      this.addNewLog(e);
     }
   }
 
@@ -165,7 +173,6 @@ class VisitForm extends React.Component {
       newDate,
       newComments,
       newPurpose,
-      // newWouldRecommend,
       newEnvironmentRating,
       newDrinkRating,
       newFoodRating,
@@ -174,12 +181,14 @@ class VisitForm extends React.Component {
       newWifiRating,
       newDrinksConsumed,
       newFoodConsumed,
+      shop,
     } = this.state;
     const { logId } = this.props.match.params;
 
     return (
       <div className="VisitForm">
-        <h1>Log Visit Form</h1>
+        <h1>Log Visit for {shop.name}</h1>
+        <p>Fill out all of the fields below and click save to record your visit to the shop.</p>
         <form className="container w-85 justify-content-center" onSubmit={this.handleSubmit}>
           <div className="row">
           <div className="form-group col-2">
