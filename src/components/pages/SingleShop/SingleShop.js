@@ -169,16 +169,16 @@ class SingleShop extends React.Component {
           (logs.length > 0)
             ? <div className="row justify-content-center">
                   <h4 className="col-12">Total Average Rating: {currentTotalRating}</h4>
-                  <p>{logs.length} User Reviews</p>
-                  <div className="progress">
-                    {/* <div className="progress-bar bg-success"
+                  <div className="col-12"><p>{logs.length} User Reviews</p></div>
+                  {/* <div className="progress">
+                    <div className="progress-bar bg-success"
                       role="progressbar"
                       style={{ width: this.renderNumber() }}
                       aria-valuenow="25"
                       aria-valuemin="0"
                       aria-valuemax="100">
-                    </div> */}
-                  </div>
+                    </div>
+                  </div> */}
                   <div className="card ratingCard">
                     <div className="card-header">
                       <h5>By Feature:</h5>
@@ -195,7 +195,7 @@ class SingleShop extends React.Component {
                 </div>
             : <div><h2>Not Yet Rated! Log and rate your visit now!</h2></div>
         }
-        <Link className="btn btn-success" to={`/shop/${shop.id}/log/new`}>+ Log Visit</Link>
+        <Link className="btn logNewVisitBtn" to={`/shop/${shop.id}/log/new`}>+ Log Visit</Link>
         {
           (userLogView) ? <button className="btn logViewBtn" onClick={this.changeViewType}>View All Logs</button>
             : <button className="btn logViewBtn" onClick={this.changeViewType}>View My Logs Only</button>

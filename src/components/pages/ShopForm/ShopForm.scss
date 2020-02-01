@@ -1,0 +1,17 @@
+@import '../../../styles/variables';
+
+.ShopForm {
+  color: $darkbrown;
+  text-shadow: 1px 1px 1px $cream;
+  .btn {
+    background-color: $cream;
+    color: $darkbrown;
+    margin: 10px;
+    border: none;
+    &:hover {
+      background-color: $darkbrown;
+      color: $cream;
+      box-shadow: 5px 5px 5px black;
+    }
+  }
+}

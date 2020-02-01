@@ -1,6 +1,7 @@
 @import '../../../styles/variables.scss';
 
 .SingleShop {
+  margin-bottom: 15px;
   .progress {
     background-color: gray;
     width: 100%;
@@ -9,15 +10,15 @@
     }
   }
 
-  .logViewBtn {
-    background-color: none;
-    margin: 2px;
-    border: 1px solid $darkbrown;
+  .btn {
+    background-color: $cream;
     color: $darkbrown;
+    margin: 10px;
+    border: none;
     &:hover {
       background-color: $darkbrown;
       color: $cream;
-      transition: 1s ease;
+      box-shadow: 5px 5px 5px black;
     }
   }
 

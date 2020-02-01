@@ -361,8 +361,8 @@ class VisitForm extends React.Component {
             />
             </div>
           </div>
-        { (logId) ? <button type="submit" className="btn btn-success">Save Changes</button>
-          : <button type="submit" className="btn btn-success">Save New Entry</button>
+        { (logId) ? <button type="submit" className="btn">Save Changes</button>
+          : <button type="submit" className="btn">Save New Entry</button>
         }
         </form>
       </div>
