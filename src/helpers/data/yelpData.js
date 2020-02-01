@@ -2,11 +2,11 @@ import axios from 'axios';
 
 import apiKeys from '../apiKeys.json';
 
-// const baseUrl = apiKeys.yelpKeys.databaseURL;
+const baseUrl = apiKeys.yelpKeys.databaseURL;
 const authToken = apiKeys.yelpKeys.apiKey;
 
 const getYelpCoffeeShops = () => new Promise((resolve, reject) => {
-  axios.get('https://api.yelp/v3/businesses/search', {
+  axios.get(`${baseUrl}`, {
     headers: {
       Authorization: `Bearer ${authToken}`,
     },
