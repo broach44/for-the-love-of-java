@@ -4,8 +4,11 @@ import { Link } from 'react-router-dom';
 import ShopCard from '../../shared/ShopCard/ShopCard';
 
 import coffeeShopData from '../../../helpers/data/coffeeShopData';
+import yelpShops from '../../../helpers/data/yelpData';
 
 import './Shops.scss';
+
+yelpShops.getYelpCoffeeShops().then(() => console.log('celebrate')).catch((err) => console.error('nope', err));
 
 class Shops extends React.Component {
   state = {

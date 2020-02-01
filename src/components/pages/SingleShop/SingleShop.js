@@ -70,49 +70,49 @@ class SingleShop extends React.Component {
       currentPricingRating,
     } = this.state;
     const totalScores = currentDrinkRating + currentEnvironmentRating + currentFoodRating + currentPricingRating + currentWifiRating + currentTechRating;
-    const averageScore = totalScores / 6;
+    const averageScore = Math.round((totalScores / 6) * 10) / 10;
     this.setState({ currentTotalRating: averageScore });
   }
 
   averageTechRating = (logs) => {
     const techScores = logs.map((log) => log.techRating);
     const scoreTotal = techScores.reduce(this.addScores, 0);
-    const averageScore = scoreTotal / logs.length;
+    const averageScore = Math.round((scoreTotal / logs.length) * 10) / 10;
     this.setState({ currentTechRating: averageScore });
   }
 
   averageDrinkRating = (logs) => {
     const drinkScores = logs.map((log) => log.drinkRating);
     const scoreTotal = drinkScores.reduce(this.addScores, 0);
-    const averageScore = scoreTotal / logs.length;
+    const averageScore = Math.round((scoreTotal / logs.length) * 10) / 10;
     this.setState({ currentDrinkRating: averageScore });
   }
 
   averageFoodRating = (logs) => {
     const foodScores = logs.map((log) => log.foodRating);
     const scoreTotal = foodScores.reduce(this.addScores, 0);
-    const averageScore = scoreTotal / logs.length;
+    const averageScore = Math.round((scoreTotal / logs.length) * 10) / 10;
     this.setState({ currentFoodRating: averageScore });
   }
 
   averageEnvironmentRating = (logs) => {
     const environmentScores = logs.map((log) => log.environmentRating);
     const scoreTotal = environmentScores.reduce(this.addScores, 0);
-    const averageScore = scoreTotal / logs.length;
+    const averageScore = Math.round((scoreTotal / logs.length) * 10) / 10;
     this.setState({ currentEnvironmentRating: averageScore });
   }
 
   averagePricingRating = (logs) => {
     const pricingScores = logs.map((log) => log.pricingRating);
     const scoreTotal = pricingScores.reduce(this.addScores, 0);
-    const averageScore = scoreTotal / logs.length;
+    const averageScore = Math.round((scoreTotal / logs.length) * 10) / 10;
     this.setState({ currentPricingRating: averageScore });
   }
 
   averageWifiRating = (logs) => {
     const wifiScores = logs.map((log) => log.wifiRating);
     const scoreTotal = wifiScores.reduce(this.addScores, 0);
-    const averageScore = scoreTotal / logs.length;
+    const averageScore = Math.round((scoreTotal / logs.length) * 10) / 10;
     this.setState({ currentWifiRating: averageScore });
   }
 
