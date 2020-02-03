@@ -2,23 +2,26 @@ import axios from 'axios';
 
 import apiKeys from '../apiKeys.json';
 
-// const baseUrl = apiKeys.yelpKeys.databaseURL;
+const baseUrl = apiKeys.yelpKeys.databaseURL;
 const authToken = apiKeys.yelpKeys.apiKey;
 
-const getYelpCoffeeShops = () => new Promise((resolve, reject) => {
-  axios.get('https://api.yelp/v3/businesses/search', {
+const getYelpCoffeeShops = (userSearchParams, userLocation) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}`, {
     headers: {
       Authorization: `Bearer ${authToken}`,
     },
     params: {
-      location: 'Nashville',
+      term: `${userSearchParams}`,
+      location: `${userLocation}`,
+      radius: 30000,
       categories: 'coffee',
+      sort_by: 'distance',
+      limit: 50,
     },
   })
     .then((result) => {
-      const someObj = result.data;
-      console.log(someObj);
-      resolve(someObj);
+      const shops = result.data;
+      resolve(shops);
     })
     .catch((err) => reject(err));
 });
