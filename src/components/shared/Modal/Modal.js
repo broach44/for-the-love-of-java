@@ -16,6 +16,7 @@ class ModalExample extends React.Component {
       newLastName: '',
       newCity: '',
       newState: '',
+      newZip: '',
     };
 
     toggle = () => {
@@ -42,6 +43,7 @@ class ModalExample extends React.Component {
         newLastName,
         newCity,
         newState,
+        newZip,
       } = this.state;
       const uid = authData.getUid();
       const userObject = {
@@ -49,6 +51,7 @@ class ModalExample extends React.Component {
         lastName: newLastName,
         city: newCity,
         state: newState,
+        zip: newZip,
         uid,
       };
       return userObject;
@@ -70,6 +73,10 @@ class ModalExample extends React.Component {
     changeState = (e) => {
       this.setState({ newState: e.target.value });
     }
+
+    changeZip = (e) => {
+      this.setState({ newZip: e.target.value });
+    }
     // ** End state set for form fields **
 
     render() {
@@ -78,6 +85,7 @@ class ModalExample extends React.Component {
         newLastName,
         newCity,
         newState,
+        newZip,
       } = this.state;
       return (
         <div>
@@ -131,6 +139,19 @@ class ModalExample extends React.Component {
                     placeholder=""
                     value={newState}
                     onChange={this.changeState}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="userZip">Zip</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="userZip"
+                    placeholder="5 or 9 digit zip"
+                    pattern="\d{5}-?(\d{4})?"
+                    value={newZip}
+                    onChange={this.changeZip}
                     required
                   />
                 </div>

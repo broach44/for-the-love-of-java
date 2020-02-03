@@ -28,4 +28,16 @@
     }
   }
 
+  .yelpButtons {
+    background-color: $cream;
+    color: $darkbrown;
+    margin: 5px;
+    &:hover {
+      background-color: $darkbrown;
+      color: $cream;
+      transition: 1s ease;
+      box-shadow: 5px 5px 5px black;
+    }
+  }
+
 }

@@ -4,20 +4,23 @@
     "firsName": "Bat",
     "lastName": "Man",
     "city": "Gotham",
-    "state":  "New York"
+    "state":  "New York",
+    "zip": "55555"
     },
     "user2": {
     "uid": "78910",
     "firsName": "Carol",
     "lastName": "Danvers",
     "city": "Nashville",
-    "state":  "Tennessee"
+    "state":  "Tennessee",
+    "zip": "37090"
     },
     "user3": {
-    "uid": "UGB1hywwytOoOfA8LSp5vWpuzzG3",
+    "uid": "555555555555555555",
     "firsName": "Barry",
     "lastName": "Allen",
     "city": "Nashville",
-    "state":  "Tennessee"
+    "state":  "Tennessee",
+    "zip": "37090"
     }
  }
