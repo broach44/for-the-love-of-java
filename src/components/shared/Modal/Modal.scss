@@ -1,0 +1,29 @@
+@import '../../../styles/variables';
+
+
+.ModalFormBody {
+  background-color: rgba(252, 241, 229, .3);
+  color: $darkbrown;
+  .modalForm {
+    input {
+      border-radius: 0!important;
+      border: none;
+      box-shadow: 5px 5px 5px $darkbrown;
+      &:focus {
+        box-shadow: 0 0 15px $darkbrown;
+        border: 1px solid $darkbrown;
+      }
+    }
+  }
+  .createProfileBtn {
+    background-color: $cream;
+    color: $darkbrown;
+    border: 1px solid $darkbrown;
+    box-shadow: 2px 2px 10px $darkbrown;
+    &:hover, &:focus {
+      background-color: $darkbrown;
+      color: $cream;
+      box-shadow: 5px 5px 10px black;
+    }
+  }
+}

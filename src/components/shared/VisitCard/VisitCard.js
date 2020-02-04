@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import './VisitCard.scss';
+
 import logShape from '../../../helpers/propz/logShape';
 import authData from '../../../helpers/data/authData';
+
+import './VisitCard.scss';
 
 class VisitCard extends React.Component {
   static propTypes = {
@@ -33,10 +35,19 @@ class VisitCard extends React.Component {
               (log.wouldRecommend) ? <p className="card-text">Yes I would recommend to others</p>
                 : <p className="card-text">No I would not recommend to others</p>
             }
-            <p className="card-text">Ratings:</p>
-            <p className="card-text">
-              Food: {log.foodRating}  Drink: {log.drinkRating}  Pricing: {log.pricingRating}  Tech: {log.techRating}  Wifi: {log.wifiRating}  Environment: {log.environmentRating}
-            </p>
+            <p className="card-text ratingTitle">Ratings:</p>
+            <div className="card-text row">
+              <ul className="col">
+                <li>Food: {log.foodRating}</li>
+                <li>Drink: {log.drinkRating}</li>
+                <li>Pricing: {log.pricingRating}</li>
+              </ul>
+              <ul className="col">
+                <li>Tech: {log.techRating}</li>
+                <li>Wifi: {log.wifiRating}</li>
+                <li>Environment: {log.environmentRating}</li>
+              </ul>
+            </div>
             {
               (log.uid === authData.getUid()) && <div>
                 <button className="btn btn-danger" onClick={this.deleteEntryEvent}>Delete Log Entry</button>

@@ -1,0 +1,14 @@
+@import '../../../styles/variables';
+
+.VisitCard {
+  padding: 10px;
+  .ratingTitle  {
+    border-bottom: 1px solid $darkbrown;
+  }
+  ul {
+    list-style: none;
+  }
+  p {
+    color: $darkbrown;
+  }
+}

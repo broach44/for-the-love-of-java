@@ -9,6 +9,8 @@ import {
 import authData from '../../../helpers/data/authData';
 import userProfileData from '../../../helpers/data/userProfileData';
 
+import './Modal.scss';
+
 class ModalExample extends React.Component {
     state = {
       modal: true,
@@ -90,11 +92,11 @@ class ModalExample extends React.Component {
       } = this.state;
       return (
         <div>
-          <Modal isOpen={this.state.modal} className={this.props.className}>
-            <ModalHeader>Let's Get Started!</ModalHeader>
-            <ModalBody>
+          <Modal isOpen={this.state.modal}>
+            <ModalHeader className="ModalFormBody">Let's Get Started!</ModalHeader>
+            <ModalBody className="ModalFormBody">
               <h6>Fill out the form below to create your user profile.</h6>
-              <form className="m-1" onSubmit={this.addNewUser}>
+              <form className="modalForm m-1" onSubmit={this.addNewUser}>
                 <div className="form-group">
                   <label htmlFor="userFirstName">First Name</label>
                   <input
@@ -156,7 +158,7 @@ class ModalExample extends React.Component {
                     required
                   />
                 </div>
-              <Button type="submit" color="primary">Create Profile</Button>{' '}
+              <Button type="submit" className="createProfileBtn">Create Profile</Button>{' '}
             </form>
             </ModalBody>
           </Modal>

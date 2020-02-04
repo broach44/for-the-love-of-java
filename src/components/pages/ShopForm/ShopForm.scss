@@ -30,6 +30,8 @@
   }
   input {
     border-radius: 0!important;
+    border: none;
+    box-shadow: 5px 5px 5px $darkbrown;
     &:focus {
       box-shadow: 0 0 15px $darkbrown;
       border: 1px solid $darkbrown;
