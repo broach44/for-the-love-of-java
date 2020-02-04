@@ -2,6 +2,10 @@
 
 .navbar {
   color: $darkbrown;
+  .navbar-brand img {
+    width: auto;
+    height: 75px;
+  }
   
   .nav-link {
     color: $darkbrown;
