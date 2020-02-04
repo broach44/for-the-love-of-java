@@ -21,8 +21,6 @@ class MainNavbar extends React.Component {
 
     return (
       <div className="MainNavbar">
-
-
         <nav className="navbar navbar-expand-lg">
           <span className="navbar-brand h1">For the Love of Java</span>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

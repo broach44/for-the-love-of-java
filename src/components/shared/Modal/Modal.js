@@ -32,6 +32,7 @@ class ModalExample extends React.Component {
       userProfileData.saveNewUser(newUser)
         .then(() => {
           this.toggle();
+          window.location.reload();
         })
         .catch((err) => console.error('err from create user', err));
     }

@@ -3,6 +3,14 @@
 .Shops {
   padding-top: 0;
   margin-top: 0;
+  .shopHeader h1 {
+    color: $darkbrown;
+    text-shadow: 2px 2px 2px $cream;
+  }
+  small {
+    color: $cream;
+    text-shadow: 0 0 3px $darkbrown;
+  }
 
   .searchInput {
     background-color: $cream;
