@@ -1,0 +1,12 @@
+@import '../../../styles/variables';
+
+.Auth {
+  .loginButton {
+    background-color: $cream;
+    border-radius: 15px;
+    img {
+    width: auto;
+    height: 50px;
+    }
+  }
+}

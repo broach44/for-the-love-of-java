@@ -21,7 +21,7 @@ class Auth extends React.Component {
       return (
           <div className="Auth mt-3">
             {
-              (!authed) && <button className="btn btn-warning" onClick={this.loginClickEvent}>Login with Google</button>
+              (!authed) && <button className="btn loginButton" onClick={this.loginClickEvent}><img src="https://www.c-learning.net/storage/app/media/img/buttons/google-login-button.png" alt="google sign in" /></button>
             }
           </div>
       );
