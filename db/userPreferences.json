@@ -1,0 +1,35 @@
+{
+  "userPreference1": {
+    "uid": "555555",
+    "preferredTimeOfDay": "Morning",
+    "primaryVisitPurpose": "Studying",
+    "wifiImportanceRating": 5,
+    "drinkImportanceRating":  4,
+    "foodImportanceRating":  3,
+    "pricingImportanceRating":  4,
+    "techImportanceRating":  2,
+    "environmentImportanceRating":  4
+  },
+  "userPreference2": {
+    "uid": "44444",
+    "preferredTimeOfDay": "Evening",
+    "primaryVisitPurpose": "Catching up with friends",
+    "wifiImportanceRating": 5,
+    "drinkImportanceRating":  4,
+    "foodImportanceRating":  3,
+    "pricingImportanceRating":  4,
+    "techImportanceRating":  2,
+    "environmentImportanceRating":  4
+  },
+  "userPreference3": {
+    "uid": "12345",
+    "preferredTimeOfDay": "Afternoon",
+    "primaryVisitPurpose": "Quick Break",
+    "wifiImportanceRating": 5,
+    "drinkImportanceRating":  4,
+    "foodImportanceRating":  3,
+    "pricingImportanceRating":  4,
+    "techImportanceRating":  2,
+    "environmentImportanceRating":  4
+  }
+}
