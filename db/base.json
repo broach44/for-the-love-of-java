@@ -2,5 +2,6 @@
     "users": "user",
     "userLogs": "some entries and ratings",
     "coffeeShops": "Hot brown morning potion",
-    "shopItems": "Tasty Treats"
+    "shopItems": "Tasty Treats",
+    "userPreferences": "What a girl wants"
 }

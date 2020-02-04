@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import PropTypes from 'prop-types';
+import logoImage from '../../../helpers/assets/CapstoneLogo2.png';
 
 import './MainNavbar.scss';
 
@@ -21,10 +22,10 @@ class MainNavbar extends React.Component {
 
     return (
       <div className="MainNavbar">
-
-
         <nav className="navbar navbar-expand-lg">
-          <span className="navbar-brand h1">For the Love of Java</span>
+        <Link className="navbar-brand" to="/">
+          <img src={logoImage} alt="logo" />
+        </Link>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>

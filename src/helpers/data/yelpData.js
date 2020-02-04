@@ -13,7 +13,7 @@ const getYelpCoffeeShops = (userSearchParams, userLocation) => new Promise((reso
     params: {
       term: `${userSearchParams}`,
       location: `${userLocation}`,
-      radius: 30000,
+      radius: 40000,
       categories: 'coffee',
       sort_by: 'distance',
       limit: 50,

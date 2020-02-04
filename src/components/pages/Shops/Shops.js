@@ -69,11 +69,13 @@ class Shops extends React.Component {
   }
 
   resetShops = () => {
+    this.getShops();
     this.setState({ yelpShopResults: [] });
     this.setState({ searchParams: '' });
   }
 
   render() {
+    const { yelpShopResults } = this.state;
     return (
       <div className="Shops">
         <div className="shopHeader">
@@ -87,6 +89,9 @@ class Shops extends React.Component {
         </form>
         </div>
         <div className="row justify-content-center mt-3">
+        {
+          (yelpShopResults.length > 0) && <div className="col-12"><button className="btn yelpButtons" onClick={this.resetShops}>Go Back</button></div>
+        }
         {this.renderShopView()}
         </div>
       </div>

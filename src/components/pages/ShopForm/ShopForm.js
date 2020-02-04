@@ -86,12 +86,12 @@ class ShopForm extends React.Component {
     } = this.state;
     return (
       <div className="ShopForm">
-        <h1>Add New Shop</h1>
+        <h1 className="addShopHeader">Add New Shop</h1>
         <p>Fill out all of the following fields below and click button to save.</p>
         <div className="container justify-content-center">
         <form className="m-1" onSubmit={this.setNewShop}>
             <div className="form-group">
-              <label htmlFor="inputName">Name</label>
+              <label className="formLabel" htmlFor="inputName">Name</label>
               <input
                 type="text"
                 className="form-control"
@@ -154,9 +154,10 @@ class ShopForm extends React.Component {
             </div>
           </div>
           { (!isValid) && <h6>This shop already exists!  Please check address and try again.</h6>}
-          <button type="submit" className="btn btn-primary">Save New Shop</button>
-          <Link className="btn btn-danger" to="/shops">Cancel</Link>
+          <button type="submit" className="btn">Save New Shop</button>
+          <Link className="btn cancelBtn" to="/shops">Cancel</Link>
         </form>
+        <div className="formContainer"></div>
       </div>
       </div>
     );

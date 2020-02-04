@@ -4,16 +4,23 @@
 
   .HomeJumbotron {
     background: radial-gradient(circle, rgba(82,72,61,0.4433123591233369) 0%, rgba(255,255,255,0) 100%);   
-    color: rgb(221, 197, 153);
-    text-shadow: 1px 1px 1px black;
     height: 75vh;
-    
+
+    h1, p {
+      color: $cream;
+      text-shadow: 2px 2px 3px $darkbrown;
+    }
+
+
     .startButton {
-      background-color: rgb(221, 197, 153);
+      background-color: $cream;
+      color: $darkbrown;
       box-shadow: 2px 2px 5px $darkbrown;
       border: none;
       &:hover {
-        box-shadow: 4px 4px 10px $darkbrown;
+        background-color: $darkbrown;
+        color: $cream;
+        box-shadow: 4px 4px 10px black;
         transition: 1s ease;
       }
     }

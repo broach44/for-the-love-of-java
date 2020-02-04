@@ -168,6 +168,13 @@ class VisitForm extends React.Component {
     this.setState({ newWifiRating: num });
   }
 
+  goBack = (e) => {
+    e.preventDefault();
+    const { shopId } = this.props.match.params;
+    this.props.history.push(`/shop/${shopId}`);
+  }
+
+
   render() {
     const {
       newDate,
@@ -278,6 +285,16 @@ class VisitForm extends React.Component {
           </Label>
         </FormGroup>
         <div className="row">
+          <div className="col-12 mt-3 justify-content-center">
+            <p>
+              Rate the shop on the various different categories you might look for in a coffee shop.
+              Rating should be between 0 through 5.  A rating of 5 would mean "best thing since sliced bread",
+              whereas 1 would be absolutely aweful.  Enter a "0" if you did not experience/use a particular
+              aspect of the shops amenities.
+            </p>
+          </div>
+        </div>
+        <div className="row">
           <div className="form-group col">
             <label htmlFor="EnvironmentRating">Environment Rating: </label>
             <input
@@ -364,7 +381,9 @@ class VisitForm extends React.Component {
         { (logId) ? <button type="submit" className="btn">Save Changes</button>
           : <button type="submit" className="btn">Save New Entry</button>
         }
+        <button type="button" className="btn ml-3" onClick={this.goBack}>Cancel</button>
         </form>
+        <div className="formContainer"></div>
       </div>
     );
   }

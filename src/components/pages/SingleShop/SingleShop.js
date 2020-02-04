@@ -169,7 +169,7 @@ class SingleShop extends React.Component {
           (logs.length > 0)
             ? <div className="row justify-content-center">
                   <h4 className="col-12">Total Average Rating: {currentTotalRating}</h4>
-                  <div className="col-12"><p>{logs.length} User Reviews</p></div>
+                  <div className="col-12 shopPText"><p>{logs.length} User Reviews</p></div>
                   {/* <div className="progress">
                     <div className="progress-bar bg-success"
                       role="progressbar"
@@ -184,12 +184,14 @@ class SingleShop extends React.Component {
                       <h5>By Feature:</h5>
                     </div>
                     <div className="card-body">
-                      <p>Tech Rating: {currentTechRating}</p>
-                      <p>Drink Rating: {currentDrinkRating}</p>
-                      <p>Food Rating: {currentFoodRating}</p>
-                      <p>Environment Rating: {currentEnvironmentRating}</p>
-                      <p>Pricing Rating: {currentPricingRating}</p>
-                      <p>Wifi Rating: {currentWifiRating}</p>
+                      <ul className="featureRatingList">
+                        <li>Tech Rating: {currentTechRating}</li>
+                        <li>Drink Rating: {currentDrinkRating}</li>
+                        <li>Food Rating: {currentFoodRating}</li>
+                        <li>Environment Rating: {currentEnvironmentRating}</li>
+                        <li>Pricing Rating: {currentPricingRating}</li>
+                        <li>Wifi Rating: {currentWifiRating}</li>
+                      </ul>
                     </div>
                   </div>
                 </div>
