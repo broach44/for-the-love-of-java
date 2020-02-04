@@ -1,5 +1,7 @@
 import React from 'react';
 
+import UserPreferences from '../../shared/UserPreferences/UserPreferences';
+
 import authData from '../../../helpers/data/authData';
 import userProfileData from '../../../helpers/data/userProfileData';
 
@@ -24,9 +26,14 @@ class Profile extends React.Component {
     const { user } = this.state;
     return (
       <div className="Profile">
-        <h1>User Profile</h1>
-        <h3>Name: {user.firsName} {user.lastName}</h3>
-        <h4>Location: {user.city}, {user.state}</h4>
+        <div className="row justify-content-around">
+        <div className="col-5">
+          <h1 className="mb-3">My Profile Info</h1>
+          <h3>Name: {user.firsName} {user.lastName}</h3>
+          <h4>Location: {user.city}, {user.state}</h4>
+        </div>
+        <UserPreferences user={user.uid} />
+        </div>
       </div>
     );
   }
