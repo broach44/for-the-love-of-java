@@ -28,4 +28,11 @@
   .cancelBtn {
     text-shadow: none;
   }
+  input {
+    border-radius: 0!important;
+    &:focus {
+      box-shadow: 0 0 15px $darkbrown;
+      border: 1px solid $darkbrown;
+    }
+  }
 }
