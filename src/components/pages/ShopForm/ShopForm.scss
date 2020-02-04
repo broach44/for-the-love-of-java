@@ -1,8 +1,19 @@
 @import '../../../styles/variables';
 
 .ShopForm {
-  color: $darkbrown;
-  text-shadow: 1px 1px 1px $cream;
+  color: $cream;
+  text-shadow: 2px 2px 2px $darkbrown;
+  .formContainer {
+    background-color: $darkbrown;
+    opacity: .3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -5;
+    opacity: 0.3;
+    width: 100vw;
+    height: 100vh;
+  }
   .btn {
     background-color: $cream;
     color: $darkbrown;
@@ -13,5 +24,8 @@
       color: $cream;
       box-shadow: 5px 5px 5px black;
     }
+  }
+  .cancelBtn {
+    text-shadow: none;
   }
 }
