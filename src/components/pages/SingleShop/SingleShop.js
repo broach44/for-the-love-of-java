@@ -170,7 +170,9 @@ class SingleShop extends React.Component {
             ? <div className="row justify-content-center">
                   <h4 className="col-12">Total Average Rating: {currentTotalRating}</h4>
                   <div className="col-12 shopPText"><p>{logs.length} User Reviews</p></div>
-                  {/* <div className="progress">
+                  {/*
+                    ****FEATURE COMING SOON*****
+                  <div className="progress">
                     <div className="progress-bar bg-success"
                       role="progressbar"
                       style={{ width: this.renderNumber() }}
