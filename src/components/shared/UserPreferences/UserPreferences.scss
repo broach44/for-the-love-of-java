@@ -1,7 +1,15 @@
-
+@import '../../../styles/variables';
 
 .userPreferences {
   ul {
     list-style: none;
+  }
+  .createPrefButton {
+    background-color: $cream;
+    color: $darkbrown;
+    &:hover {
+      background-color: $darkbrown;
+      color: $cream;
+    }
   }
 }
