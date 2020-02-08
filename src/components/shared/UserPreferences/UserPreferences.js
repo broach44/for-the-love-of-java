@@ -37,7 +37,6 @@ class UserPreferences extends React.Component {
           <li>Importance of Tech Usability:  {userPreferences.techImportanceRating}</li>
           <li>Importance of Environment:  {userPreferences.environmentImportanceRating}</li>
         </ul>
-        }
         </div>
       </div>
     );
