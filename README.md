@@ -31,49 +31,48 @@ As the application grows users can search through the list of coffee shops to re
 
 #### Login View: 
 Users will login using Google popup 
-<Insert login view>
+![Login View](https://raw.githubusercontent.com/broach44/for-the-love-of-java/master/screenshots/loginView.png)
 
 #### Profile Creation:
 Users will be prompted through an automatic modal to complete a profile in order to use the application.  
-<Insert profile creation view>
+![Profile Creation View](https://raw.githubusercontent.com/broach44/for-the-love-of-java/master/screenshots/profileCreationView.png)
 
 #### Home View:
 Users will be brought to the home/welcome page after creating their profile.
-<Insert homeView>
+![Home View](https://raw.githubusercontent.com/broach44/for-the-love-of-java/master/screenshots/homeView.png)
 
 #### Shops View:
 Users can look through the shops that are currently in the database.  As the list grows there is a search box to find the shop they would like based on shop name and address.
-<Insert shopsView>
+![Shops View](https://raw.githubusercontent.com/broach44/for-the-love-of-java/master/screenshots/shopsView.png)
 
 #### Results Not Found/Yelp Results:
 If a user does not find a shop that they are looking for they will be presented with an option to further search which calls to the Yelp Fusion API and returns additional results based on a 20 mile radius from the zip entered into the user's profile.
-<insert noResultsView>
-<insert yelpResultsView>
-
+![No Results View](https://raw.githubusercontent.com/broach44/for-the-love-of-java/master/screenshots/noResultsView.png)
+![Yelp Results View](https://raw.githubusercontent.com/broach44/for-the-love-of-java/master/screenshots/yelpResultsView.png)
 #### Add New Shop:
 In some cases a user may not be able to pull back shops that have not been reviewed on yelp.  In this case the user can manually add a new shop by clicking the button which will prompt them to fill out the form for the new shop.
-<Insert addNewShopFormView>
+![Add New Shop Form](https://raw.githubusercontent.com/broach44/for-the-love-of-java/master/screenshots/addNewShopFormView.png)
 
 #### Single Shop View:
 If a user clicks on a shop they are taken to a page where they can see how many users have logged a visit and an average rating of the visits on a total basis and by each feature.
-<Insert singleShopView>
+![Single Shop View](https://raw.githubusercontent.com/broach44/for-the-love-of-java/master/screenshots/singleShopView.png)
 
 #### Log View:
 When a user scrolls down on the single shop view, if any users logged a visit to that show they will see information for their log on a card.
-<Insert logView>
+![Log View](https://raw.githubusercontent.com/broach44/for-the-love-of-java/master/screenshots/logView.png)
 
 #### Log Visit Form View:
 Users may choose to log a visit of their own and rate the shop based on the various different features offered.
-<Insert logVisitFormView>
-<Inser logVIsitiFormView2>
+![Log Visit Form View 1](https://raw.githubusercontent.com/broach44/for-the-love-of-java/master/screenshots/logVisitFormView.png)
+![Log Visit Form View 2](https://raw.githubusercontent.com/broach44/for-the-love-of-java/master/screenshots/logVisitFormView2.png)
 
 #### My Logs Only View:
 As more data is entered users may wish to filter down just to view their personal data entries.  They may click a button on the single shop view to view their entries only.
-<insert myLogsOnlyView>
+![My Logs Only View](https://raw.githubusercontent.com/broach44/for-the-love-of-java/master/screenshots/myLogsOnlyView.png)
 
 #### Profile View:
 This part of the project is still in progress.  In this section the user would have the option to further detail out what they find is important when they visit shops.  Once they have selected what is important to them they would be provided with recommendations that match what they look for in a coffee shop.  If tech and wifi are important they would indicate this in their preferences so they would be matched up with shops that rate higher in this area.
-<Insert screenshot for profile view here>
+![My Logs Only View](https://raw.githubusercontent.com/broach44/for-the-love-of-java/master/screenshots/myLogsOnlyView.png)
 
 ## Live Demo
 
