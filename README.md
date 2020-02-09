@@ -1,68 +1,100 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# For the Love of Java
 
-## Available Scripts
+## Description
+This application was designed to assist users in finding a coffee shop that matched their needs and allow them to review and rate coffee shops they visit based on a few different features that many people look for in a coffee shop.  I was inspired by a few issues experienced while trying to work on group projects at a coffee shop where the environment was extremely loud and made it very difficult to collaborate with team members.
 
-In the project directory, you can run:
+Within this app a user can view current coffee shops in the database.  They can view the visits other users have logged, log a visit of their own, and if desired they can filter down to just view their own entries.  If a user makes a mistake or would like to delete an entry they have control to alter their own entries as they see fit.
 
-### `npm start`
+As the application grows users can search through the list of coffee shops to return the one they are looking for. If the shop they are looking for does not appear in the list then the user has the option to look for more shops through the Yelp Fusion API or they can manually add a shop of their choosing.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Technologies Used
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- Single page web application created using **React**
+- **React routing** was used to navigate throughout the application
+- Full **CRUD** is completed on the log visit collection using Firebase as the database
+- **Reactstrap** was used to create the popup modal for the user profile creation
+- **Yelp Fusion API** is used through an **axios** call to return more coffee shop results to the user
+- **Bootstrap** for grid layout control and simple margins
+- **Sass** for all other styling
+- **Moment.js** is used for correct date structure on the visit logs
 
-### `npm test`
+#### Versions:
+- React: 16.12.0
+- Reactstrap: 8.4.0
+- Axios:  0.19.0
+- Bootstrap:  4.4.1
+- Firebase: 7.6.1
+- Moment: 2.24.0
+- Node-sass: 4.13.0
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Screenshots
 
-### `npm run build`
+#### Login View: 
+Users will login using Google popup 
+<Insert login view>
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Profile Creation:
+Users will be prompted through an automatic modal to complete a profile in order to use the application.  
+<Insert profile creation view>
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+#### Home View:
+Users will be brought to the home/welcome page after creating their profile.
+<Insert homeView>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Shops View:
+Users can look through the shops that are currently in the database.  As the list grows there is a search box to find the shop they would like based on shop name and address.
+<Insert shopsView>
 
-### `npm run eject`
+#### Results Not Found/Yelp Results:
+If a user does not find a shop that they are looking for they will be presented with an option to further search which calls to the Yelp Fusion API and returns additional results based on a 20 mile radius from the zip entered into the user's profile.
+<insert noResultsView>
+<insert yelpResultsView>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### Add New Shop:
+In some cases a user may not be able to pull back shops that have not been reviewed on yelp.  In this case the user can manually add a new shop by clicking the button which will prompt them to fill out the form for the new shop.
+<Insert addNewShopFormView>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Single Shop View:
+If a user clicks on a shop they are taken to a page where they can see how many users have logged a visit and an average rating of the visits on a total basis and by each feature.
+<Insert singleShopView>
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### Log View:
+When a user scrolls down on the single shop view, if any users logged a visit to that show they will see information for their log on a card.
+<Insert logView>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Log Visit Form View:
+Users may choose to log a visit of their own and rate the shop based on the various different features offered.
+<Insert logVisitFormView>
+<Inser logVIsitiFormView2>
 
-## Learn More
+#### My Logs Only View:
+As more data is entered users may wish to filter down just to view their personal data entries.  They may click a button on the single shop view to view their entries only.
+<insert myLogsOnlyView>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Profile View:
+This part of the project is still in progress.  In this section the user would have the option to further detail out what they find is important when they visit shops.  Once they have selected what is important to them they would be provided with recommendations that match what they look for in a coffee shop.  If tech and wifi are important they would indicate this in their preferences so they would be matched up with shops that rate higher in this area.
+<Insert screenshot for profile view here>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Live Demo
 
-### Code Splitting
+Click [here](https://for-the-love-of-java.firebaseapp.com/) to try out the live demo.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## How to Run
 
-### Analyzing the Bundle Size
+- Clone down the project
+- In the terminal run `npm install`
+- Create a firebase project [here](https://console.firebase.google.com/)
+- Create `src/helpers/apiKeys.json` file and add in your firebase keys that were created in the new firebase project.  Feel free to reference the `apiKeys.example.json` file in the project for the correct structure.
+- Once set up to run enter the following in the terminal `npm start`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## Future Features
 
-### Making a Progressive Web App
+- User Preference section complete to allow users to define what is important to them
+- Users to be able to change their location to return results based on where they are located, not their home address
+- Recommended shops to be shown in the user profile
+- Advanced search option so user can manually select the ratings they are looking for in case their recommended shops did not return locations that they wish to visit.
+- Photos of the shops to be added to the cards
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## Contributors
 
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[Crystal Broach](https://github.com/broach44)
