@@ -5,4 +5,15 @@
   height: 75vh;
   color: $cream;
   text-shadow: 2px 2px 2px $darkbrown;
+  .creamBtn {
+    background-color: $cream;
+    text-shadow: none;
+    color: $darkbrown;
+    height: 40px;
+    box-shadow: 2px 2px 5px $darkbrown;
+    &:hover {
+      background-color: $darkbrown;
+      color: $cream;
+    }
+  }
 }

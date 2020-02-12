@@ -10,11 +10,12 @@ import 'firebase/auth';
 
 import Auth from '../components/pages/Auth/Auth';
 import Home from '../components/pages/Home/Home';
-import Profile from '../components/pages/Profile/Profile';
 import MainNavbar from '../components/shared/MainNavbar/MainNavbar';
+import Profile from '../components/pages/Profile/Profile';
 import Shops from '../components/pages/Shops/Shops';
 import ShopForm from '../components/pages/ShopForm/ShopForm';
 import SingleShop from '../components/pages/SingleShop/SingleShop';
+import UserPreferenceForm from '../components/pages/UserPreferenceForm/UserPreferenceForm';
 import VisitForm from '../components/pages/VisitForm/VisitForm';
 
 import firebaseConnection from '../helpers/data/connection';
@@ -61,6 +62,7 @@ class App extends React.Component {
           <Switch>
             <PrivateRoute path="/" exact component={Home} authed={authed} />
             <PrivateRoute path="/profile" exact component={Profile} authed={authed} />
+            <PrivateRoute path="/userPreferenceForm" exact component={UserPreferenceForm} authed={authed} />
             <PrivateRoute path="/shops" exact component={Shops} authed={authed} />
             <PrivateRoute path="/shop/new" exact component={ShopForm} authed={authed} />
             <PrivateRoute path="/shop/:shopId" exact component={SingleShop} authed={authed} />
