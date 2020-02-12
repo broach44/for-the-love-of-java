@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 
-import logShape from '../../../helpers/propz/logShape';
 import authData from '../../../helpers/data/authData';
+
+import logShape from '../../../helpers/propz/logShape';
 
 import './VisitCard.scss';
 

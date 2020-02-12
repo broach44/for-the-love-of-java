@@ -26,7 +26,11 @@ class MainNavbar extends React.Component {
         <Link className="navbar-brand" to="/">
           <img src={logoImage} alt="logo" />
         </Link>
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button className="navbar-toggler"
+              type="button" data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
           <ul className="navbar-nav ml-4 mr-auto">

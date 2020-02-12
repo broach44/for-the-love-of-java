@@ -2,11 +2,12 @@ import React from 'react';
 import { Jumbotron, Container } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
+import ModalExample from '../../shared/Modal/Modal';
+
 import authData from '../../../helpers/data/authData';
 import userProfileData from '../../../helpers/data/userProfileData';
 
 import './Home.scss';
-import ModalExample from '../../shared/Modal/Modal';
 
 class Home extends React.Component {
   state = {

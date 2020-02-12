@@ -4,6 +4,7 @@ import { FormGroup, Label, Input } from 'reactstrap';
 import userLogsData from '../../../helpers/data/userLogData';
 import coffeeShopData from '../../../helpers/data/coffeeShopData';
 import authData from '../../../helpers/data/authData';
+
 import './VisitForm.scss';
 
 class VisitForm extends React.Component {

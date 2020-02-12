@@ -19,7 +19,6 @@ class UserPreferences extends React.Component {
 
   componentDidMount() {
     this.getPreferences();
-    console.log('what is here', this.state.userPreferences);
   }
 
   render() {
