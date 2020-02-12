@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 import shopShape from '../../../helpers/propz/shopShape';
 
 import './ShopCard.scss';

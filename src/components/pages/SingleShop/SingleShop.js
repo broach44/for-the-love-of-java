@@ -5,9 +5,9 @@ import VisitLogs from '../../shared/VisitLogs/VisitLogs';
 
 import coffeeShopData from '../../../helpers/data/coffeeShopData';
 import userLogData from '../../../helpers/data/userLogData';
+import authData from '../../../helpers/data/authData';
 
 import './SingleShop.scss';
-import authData from '../../../helpers/data/authData';
 
 class SingleShop extends React.Component {
   state = {
@@ -23,7 +23,6 @@ class SingleShop extends React.Component {
     userLogView: false,
   }
 
-  // Function below brings back the single Shop Information and sets to state
   setCurrentShop = () => {
     const { shopId } = this.props.match.params;
     coffeeShopData.getSingleShop(shopId)

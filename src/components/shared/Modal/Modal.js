@@ -27,7 +27,6 @@ class ModalExample extends React.Component {
       });
     }
 
-    // ** Save Function Here**
     addNewUser = (e) => {
       e.preventDefault();
       const newUser = this.createUser();
@@ -38,7 +37,6 @@ class ModalExample extends React.Component {
         })
         .catch((err) => console.error('err from create user', err));
     }
-    // ** End Save Function **
 
     createUser = () => {
       const {
@@ -60,7 +58,6 @@ class ModalExample extends React.Component {
       return userObject;
     }
 
-    // ** Set state from form fields here **
     changeFirsName = (e) => {
       this.setState({ newFirsName: e.target.value });
     }
@@ -80,7 +77,6 @@ class ModalExample extends React.Component {
     changeZip = (e) => {
       this.setState({ newZip: e.target.value });
     }
-    // ** End state set for form fields **
 
     render() {
       const {
