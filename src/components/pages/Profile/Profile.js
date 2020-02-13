@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// import UserPreferences from '../../shared/UserPreferences/UserPreferences';
+import UserPreferences from '../../shared/UserPreferences/UserPreferences';
 
 import authData from '../../../helpers/data/authData';
 import userProfileData from '../../../helpers/data/userProfileData';
@@ -33,7 +33,7 @@ class Profile extends React.Component {
           <h3>Name: {user.firsName} {user.lastName}</h3>
           <h4>Location: {user.city}, {user.state}</h4>
         </div>
-        {/* <UserPreferences user={user.uid} /> */}
+        <UserPreferences user={user.uid} />
         <Link className="btn creamBtn" to="/UserPreferenceForm">Click Here to Create Preferences</Link>
         </div>
       </div>

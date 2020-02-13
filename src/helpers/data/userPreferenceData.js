@@ -21,4 +21,6 @@ const getPreferencesByUid = (uid) => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
-export default { getPreferencesByUid };
+const savePreferences = (entryInfo) => axios.post(`${baseUrl}/userPreferences.json`, entryInfo);
+
+export default { getPreferencesByUid, savePreferences };
